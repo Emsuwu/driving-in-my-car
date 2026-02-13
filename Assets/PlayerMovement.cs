@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Migrate to Settings later")]
     [Range(0f, 5000f)] public float WalkSpeed = 10f;
     [Range(0.01f, .5f)] public float CameraSensitivity = 10f;
+    private float _headBobCounter;
     public float RefreshRate = 60f;
     public bool InvertX;
     public bool InvertY;
@@ -48,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         gameObject.AddComponent<ConstantForce>().force = new Vector3(0.0f, -20f, 0.0f);
-
     }
     private void OnEnable()
     {
@@ -77,7 +77,28 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = (transform.forward * _moveAxis.y + transform.right * _moveAxis.x) * WalkSpeed * Time.fixedDeltaTime;
         movement.y = storeYVel;
         _rb.linearVelocity = movement;
-        //(_rb.position + movement);
+        BobHead();
+    }
+
+    private void BobHead()
+    {
+        const float FREQUENCY = 5f;
+        const float AMPLITUDE = 8f;
+        Vector3 horizontalVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.x).normalized;
+        float velocityMagnitude = horizontalVelocity.magnitude;
+        float sinCounter = 0f;
+
+        if (velocityMagnitude < .01f)
+        {
+            _headBobCounter = 0f;
+        }
+        else
+        {
+            _headBobCounter += Time.fixedDeltaTime * velocityMagnitude * FREQUENCY;
+        }
+        sinCounter = Mathf.Sin(_headBobCounter) * (1/AMPLITUDE);
+        float newCamY = Mathf.Lerp(_camera.transform.localPosition.y, sinCounter, Time.deltaTime * FREQUENCY);
+        _camera.transform.localPosition = new Vector3(0, newCamY, 0);
     }
     private void Rotation()
     {
@@ -93,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
         _lookCamX += camXRot;
         _lookCamX = Mathf.Clamp(_lookCamX, -90f, 90f);
 
-        transform.rotation = Quaternion.Euler(0, _lookPlayerY, 0);
+        transform.localRotation = Quaternion.Euler(0, _lookPlayerY, 0);
         _camera.transform.localRotation = Quaternion.Euler(_lookCamX, 0, 0);
     }
 }
