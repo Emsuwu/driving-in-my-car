@@ -12,11 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInteract _playerInteractScript;
 
     [Header("Migrate to Settings later")]
-    [Range(.5f, 10f)] public float WalkSpeed = 10f;
+    [Range(0f, 5000f)] public float WalkSpeed = 10f;
     [Range(0.01f, .5f)] public float CameraSensitivity = 10f;
     public float RefreshRate = 60f;
     public bool InvertX;
     public bool InvertY;
+
     private InputAction _interactAction;
     private InputAction _moveAction;
     private Vector2 _moveAxis;
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         _interactAction = InputSystem.actions.FindAction("Interact");
         _playerInteractScript = GetComponent<PlayerInteract>();
         _rb = GetComponent<Rigidbody>();
+        
 
         // Get refresh rate
         RefreshRate = (float)Screen.currentResolution.refreshRateRatio.value;
@@ -44,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
         {
             Time.fixedDeltaTime = 1f / RefreshRate;
         }
+
+        gameObject.AddComponent<ConstantForce>().force = new Vector3(0.0f, -20f, 0.0f);
+
     }
     private void OnEnable()
     {
@@ -68,8 +73,11 @@ public class PlayerMovement : MonoBehaviour
     private void Movement()
     {
         _moveAxis = _moveAction.ReadValue<Vector2>();
+        float storeYVel = _rb.linearVelocity.y;
         Vector3 movement = (transform.forward * _moveAxis.y + transform.right * _moveAxis.x) * WalkSpeed * Time.fixedDeltaTime;
-        _rb.MovePosition(_rb.position + movement);
+        movement.y = storeYVel;
+        _rb.linearVelocity = movement;
+        //(_rb.position + movement);
     }
     private void Rotation()
     {
