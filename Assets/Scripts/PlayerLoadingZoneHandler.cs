@@ -6,7 +6,7 @@ public class PlayerLoadingZoneHandler : MonoBehaviour
     {
         if (other.TryGetComponent<LoadingZone>(out LoadingZone lz))
         {
-            
+            lz.Trigger();
         }
     }
 }
