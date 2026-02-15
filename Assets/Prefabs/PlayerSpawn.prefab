@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1698605590529096778}
   - component: {fileID: 2525364481605989937}
-  - component: {fileID: 3807051044377898749}
   - component: {fileID: 7581676726764721977}
-  m_Layer: 0
+  - component: {fileID: -6410051664812509249}
+  m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 302f6cea9d8812148a677630e0e96c09, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -85,14 +85,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &3807051044377898749
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786909104437961431}
-  m_Enabled: 1
 --- !u!114 &7581676726764721977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +129,20 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &-6410051664812509249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786909104437961431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &2696932171232473099
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4588074331634202093}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CamParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +190,8 @@ GameObject:
   - component: {fileID: 50519281406121386}
   - component: {fileID: 1809631808131414545}
   - component: {fileID: 3646683640971519183}
-  m_Layer: 0
+  - component: {fileID: 263503085407861611}
+  m_Layer: 7
   m_Name: PlayerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,6 +349,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99afcd8240b515649a93a11c7272f6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &263503085407861611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6432244115011638804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb85d92114b7d5c49a83c8e5699361a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
 --- !u!1 &7710128336883439235
