@@ -27,6 +27,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 128064
+--- !u!114 &-145946099401148243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/FootstepType
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: FootstepType
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 1
+  ID:
+    data1: 1914679710
+    data2: 3559805058
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,13 +71,14 @@ MonoBehaviour:
   - {fileID: 554973624066365236}
   EditorEvents:
   - {fileID: -7923988845014599890}
+  - {fileID: 3844805824068764402}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5199159010263730310}
   StringsBanks:
   - {fileID: 8912001126375132464}
   cacheVersion: 131858
-  cacheTime: 639067539362950402
+  cacheTime: 639067541177557988
   SerializableEventsDict:
   - key: event:/Ambience
     index: 0
@@ -72,10 +97,10 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Sound Effects.bank
   Name: Sound Effects
   StudioPath: bank:/Sound Effects
-  lastModified: 639067449394932132
+  lastModified: 639067541177557988
   FileSizes:
   - Name: Desktop
-    Value: 506
+    Value: 124384
   Exists: 1
 --- !u!114 &2779666125649218015
 MonoBehaviour:
@@ -97,6 +122,34 @@ MonoBehaviour:
   - Name: Desktop
     Value: 506
   Exists: 1
+--- !u!114 &3844805824068764402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Footsteps
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Footsteps
+  Guid:
+    Data1: 970656667
+    Data2: 1115086984
+    Data3: -1621471298
+    Data4: -1633637020
+  Banks:
+  - {fileID: 554973624066365236}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -145946099401148243}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 936
 --- !u!114 &5199159010263730310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +165,7 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639067539362939923
+  lastModified: 639067541176283588
   FileSizes:
   - Name: Desktop
     Value: 1074
@@ -152,8 +205,8 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639067539362950402
+  lastModified: 639067541176293596
   FileSizes:
   - Name: Desktop
-    Value: 966
+    Value: 1018
   Exists: 1
