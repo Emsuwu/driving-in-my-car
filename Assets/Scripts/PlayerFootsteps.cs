@@ -10,7 +10,7 @@ public class PlayerFootsteps : MonoBehaviour
     private PLAYBACK_STATE _playbackState;
     public static PlayerFootsteps Instance;
     private EventInstance _footstepsSoundInstance;
-    private int groundType = 1;
+    private float groundType = 1;
 
     private void Awake()
     {
@@ -44,15 +44,16 @@ public class PlayerFootsteps : MonoBehaviour
             switch (hit.collider.tag)
             {
                 case "Concrete":
-                    groundType = 1;
+                    groundType = 1f;
                     break;
                 case "Grass":
-                    groundType = 2;
+                    groundType = 2f;
                     break;
                 default:
-                    groundType = 0;
+                    groundType = 0f;
                     break;
             }
+            _footstepsSoundInstance.setParameterByName("FootstepType", groundType);
         }
     }
 
