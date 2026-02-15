@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Camera _camera;
     private Rigidbody _rb;
     private PlayerInteract _playerInteractScript;
+    private PlayerFootsteps _playerFootstepsScript;
 
     [Header("Migrate to Settings later")]
     [Range(0f, 5000f)] public float WalkSpeed = 10f;
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        _playerFootstepsScript = GetComponent<PlayerFootsteps>();
         _lookCamX = _camera.transform.rotation.x;
         _lookPlayerY = transform.rotation.y;
         if (Instance == null) Instance = this;
@@ -91,9 +93,12 @@ public class PlayerMovement : MonoBehaviour
         if (velocityMagnitude < .01f)
         {
             _headBobCounter = 0f;
+            PlayerFootsteps.Instance.Stop();
         }
         else
         {
+            PlayerFootsteps.Instance.CheckAndSetFootstepType();
+            PlayerFootsteps.Instance.Play();
             _headBobCounter += Time.fixedDeltaTime * velocityMagnitude * FREQUENCY;
         }
         sinCounter = Mathf.Sin(_headBobCounter) * (1/AMPLITUDE);

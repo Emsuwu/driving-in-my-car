@@ -78,7 +78,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 8912001126375132464}
   cacheVersion: 131858
-  cacheTime: 639067640485616612
+  cacheTime: 639067722125894656
   SerializableEventsDict:
   - key: event:/Ambience
     index: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Sound Effects.bank
   Name: Sound Effects
   StudioPath: bank:/Sound Effects
-  lastModified: 639067640485616612
+  lastModified: 639067722125894656
   FileSizes:
   - Name: Desktop
     Value: 124384

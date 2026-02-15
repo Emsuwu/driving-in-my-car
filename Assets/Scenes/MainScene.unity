@@ -1920,23 +1920,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1483578691859005209, guid: 63f49edd744a2d34c9f1852f50201268, type: 3}
---- !u!1 &624540682 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6432244115011638804, guid: 85f3b0b70e81fb04fba847b9675ec68e, type: 3}
+--- !u!4 &624540692 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6189206541999163802, guid: 85f3b0b70e81fb04fba847b9675ec68e, type: 3}
   m_PrefabInstance: {fileID: 3152313786148542546}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &624540691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624540682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f23280e4ad370d42bde60912b6bc6a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!64 &677426669
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2074,6 +2062,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &858701244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 858701245}
+  - component: {fileID: 858701246}
+  m_Layer: 7
+  m_Name: PlayerFootsteps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &858701245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858701244}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 624540692}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &858701246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858701244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f23280e4ad370d42bde60912b6bc6a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFootsteps
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _footstepsSound:
+    Guid:
+      Data1: 970656667
+      Data2: 1115086984
+      Data3: -1621471298
+      Data4: -1633637020
+    Path: event:/Footsteps
 --- !u!64 &858850627
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4531,7 +4573,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2.14.1-dev
+  m_text: 2.15.1-dev
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6945,11 +6987,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6432244115011638804, guid: 85f3b0b70e81fb04fba847b9675ec68e, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6189206541999163802, guid: 85f3b0b70e81fb04fba847b9675ec68e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 624540691}
+      addedObject: {fileID: 858701245}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f3b0b70e81fb04fba847b9675ec68e, type: 3}
 --- !u!114 &5304097129134627947
 MonoBehaviour:

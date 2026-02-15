@@ -94,6 +94,12 @@ public class AudioManager : MonoBehaviour
     // Attaching instances
     public static void AttachInstanceToGameObject(EventInstance eventInstance, GameObject gameObject)
     {
+        if (!eventInstance.isValid())
+        {
+            Debug.LogWarning("AudioManager: Invalid EventInstance");
+            return;
+        }
+        eventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
         RuntimeManager.AttachInstanceToGameObject(eventInstance, gameObject);
     }
 
