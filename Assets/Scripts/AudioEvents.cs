@@ -15,5 +15,6 @@ public class AudioEvents : MonoBehaviour
     {
         //AudioManager.PlayOneShot(AmbienceSound, PlayerMovement.Instance.transform);
         _ambienceInstance = AudioManager.CreateAndStartInstance(AmbienceSound, PlayerMovement.Instance.transform);
+        AudioManager.AttachInstanceToGameObject(_ambienceInstance, PlayerMovement.Instance.gameObject);
     }
 }

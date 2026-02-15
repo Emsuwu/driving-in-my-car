@@ -72,9 +72,29 @@ public class AudioManager : MonoBehaviour
     {
         StopInstance(eventInstance, FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
+    
+    // Starting EventInstances
     public static void StartInstance(EventInstance eventInstance)
     {
         eventInstance.start();
+    }
+
+    // Setting EventInstances position
+    public static void SetInstancePosition(EventInstance eventInstance, Transform transform)
+    {
+        FMOD.ATTRIBUTES_3D attributes = FMODUnity.RuntimeUtils.To3DAttributes(transform);
+        eventInstance.set3DAttributes(attributes);
+    }
+    public static void SetInstancePosition(EventInstance eventInstance, Vector3 position)
+    {
+        FMOD.ATTRIBUTES_3D attributes = FMODUnity.RuntimeUtils.To3DAttributes(position);
+        eventInstance.set3DAttributes(attributes);
+    }
+
+    // Attaching instances
+    public static void AttachInstanceToGameObject(EventInstance eventInstance, GameObject gameObject)
+    {
+        RuntimeManager.AttachInstanceToGameObject(eventInstance, gameObject);
     }
 
     // Clean up
@@ -82,7 +102,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (EventInstance eventInstance in _currentEventInstances)
         {
-            StopInstance(eventInstance);
+            eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
         _currentEventInstances.Clear();
     }

@@ -53,7 +53,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 8912001126375132464}
   cacheVersion: 131858
-  cacheTime: 639067449394952202
+  cacheTime: 639067490157623037
   SerializableEventsDict:
   - key: event:/Ambience
     index: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 639067449394905110
+  lastModified: 639067490157623037
   FileSizes:
   - Name: Desktop
     Value: 1497536
