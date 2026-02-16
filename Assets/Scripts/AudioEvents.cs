@@ -11,6 +11,8 @@ public class AudioEvents : MonoBehaviour
     public EventReference AmbienceSound;
     private EventInstance _ambienceInstance;
 
+    public EventReference ButtonHoverSound;
+
     private void Start()
     {
         //AudioManager.PlayOneShot(AmbienceSound, PlayerMovement.Instance.transform);

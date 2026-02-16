@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Movement()
     {
+        if (PauseController.Instance.IsPaused) return;
         _moveAxis = _moveAction.ReadValue<Vector2>();
         float storeYVel = _rb.linearVelocity.y;
         Vector3 movement = (transform.forward * _moveAxis.y + transform.right * _moveAxis.x) * WalkSpeed * Time.fixedDeltaTime;
@@ -107,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Rotation()
     {
+        if (PauseController.Instance.IsPaused) return;
         _lookAxis = _lookAction.ReadValue<Vector2>();
         Cursor.lockState = CursorLockMode.Locked;
 
