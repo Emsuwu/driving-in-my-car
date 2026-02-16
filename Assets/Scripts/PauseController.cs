@@ -9,13 +9,15 @@ public class PauseController : MonoBehaviour
     public static PauseController Instance;
     public bool IsPaused { get { return _isPaused; } }
     [SerializeField] private GameObject _pauseMenu;
-    [SerializeField] private Button _backToGameButton;
     [SerializeField] private InputActionAsset _inputActions;
     private InputAction _pauseAction;
+    public Vector2 NavigateAxis;
+    private InputAction _navigate;
     private void Awake()
     {
         Instance = this;
         _pauseAction = InputSystem.actions.FindAction("Pause");
+        _navigate = InputSystem.actions.FindAction("Navigate");
     }
     private void OnEnable()
     {
@@ -28,6 +30,7 @@ public class PauseController : MonoBehaviour
     void Update()
     {
         if (_pauseAction.WasPressedThisFrame()) { TogglePause(); }
+        NavigateAxis = _navigate.ReadValue<Vector2>();
     }
 
     private void TogglePause()
@@ -36,7 +39,6 @@ public class PauseController : MonoBehaviour
         _pauseMenu.SetActive(_isPaused);
         if (_isPaused) { 
             Cursor.lockState = CursorLockMode.None;
-            _backToGameButton.Select();
         }
         else { Cursor.lockState = CursorLockMode.Locked; }
     }
@@ -45,5 +47,6 @@ public class PauseController : MonoBehaviour
         _isPaused = false;
         _pauseMenu.SetActive(_isPaused);
         Cursor.lockState = CursorLockMode.Locked;
+        
     }
 }

@@ -1,19 +1,38 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class MenuButton : MonoBehaviour
 {
-    private string _buttonTextUnselected;
-    private string _buttonTextSelected;
+    private bool _isSelected;
+    public bool isSelected { get { return _isSelected; } }
+    [SerializeField] private bool _initialSelection;
+    [HideInInspector] public string buttonTextUnselected;
+    [HideInInspector] public string buttonTextSelected;
     private EventTrigger _eventTrigger;
-    [SerializeField] private TMPro.TMP_Text _text;
-    private void Awake()
+    [HideInInspector] public Button button;
+    [SerializeField] public TMPro.TMP_Text text;
+
+    public void Awake()
     {
-        _buttonTextUnselected = _text.text;
-        _buttonTextSelected = "> " + _text.text;
+        buttonTextUnselected = text.text;
+        buttonTextSelected = "> " + text.text;
+        button = GetComponent<Button>();
 
         AddTriggers();
     }
+
+    public void OnEnable()
+    {
+        text.text = buttonTextUnselected;
+        if (_initialSelection)
+        {
+            text.text = buttonTextSelected;
+            GetComponent<Button>().Select();
+        }
+    }
+
     private void AddTriggers()
     {
         _eventTrigger = gameObject.AddComponent<EventTrigger>();
@@ -43,12 +62,14 @@ public class MenuButton : MonoBehaviour
         _eventTrigger.triggers.Add(deselectedEntry);
     }
     public void Select() {
-        _text.text = _buttonTextSelected;
+        _isSelected = true;
+        text.text = buttonTextSelected;
         AudioManager.PlayOneShot(AudioEvents.Current.ButtonHoverSound, PlayerMovement.Instance.transform);
     }
     public void Deselect()
     {
-        _text.text = _buttonTextUnselected;
+        _isSelected = false;
+        text.text = buttonTextUnselected;
     }
     public void OnTrigger()
     {
