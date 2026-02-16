@@ -29,27 +29,29 @@ public class MenuVolumeButton : MenuButton
 
         if (PauseController.Instance.NavigateAxis.x > .1)
         {
-            _vol += .01f;
-            AudioManager.PlayOneShot(AudioEvents.Current.ButtonHoverSound, PlayerMovement.Instance.transform);
+            _vol += Time.deltaTime;
+            //AudioManager.PlayOneShot(AudioEvents.Current.ButtonHoverSound, PlayerMovement.Instance.transform);
         }
-        else if (PauseController.Instance.NavigateAxis.x > .1)
+        else if (PauseController.Instance.NavigateAxis.x < -.1)
         {
-            _vol -= .01f;
-            AudioManager.PlayOneShot(AudioEvents.Current.ButtonHoverSound, PlayerMovement.Instance.transform);
+            _vol -= Time.deltaTime;
+            //AudioManager.PlayOneShot(AudioEvents.Current.ButtonHoverSound, PlayerMovement.Instance.transform);
         }
 
-        text.text = buttonTextSelected + $" [{_vol/1f*100}%]";
+        _vol = Mathf.Clamp( _vol, 0f, 2f );
+
+        text.text = buttonTextSelected + $" [{Mathf.Round(_vol/1f*100)}%]";
         _targetBus.setVolume(_vol);
         
     }
     new public void Select()
     {
         base.Select();
-        text.text = buttonTextSelected + $" [{_vol / 1f * 100}%]";
+        text.text = buttonTextSelected + $" [{Mathf.Round(_vol / 1f * 100)}%]";
     }
     new public void Deselect()
     {
         base.Deselect();
-        text.text = buttonTextUnselected + $" [{_vol / 1f * 100}%]";
+        text.text = buttonTextUnselected + $" [{Mathf.Round(_vol / 1f * 100)}%]";
     }
 }

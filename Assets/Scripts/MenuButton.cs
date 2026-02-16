@@ -71,8 +71,4 @@ public class MenuButton : MonoBehaviour
         _isSelected = false;
         text.text = buttonTextUnselected;
     }
-    public void OnTrigger()
-    {
-        Debug.Log("SayHi");
-    }
 }
