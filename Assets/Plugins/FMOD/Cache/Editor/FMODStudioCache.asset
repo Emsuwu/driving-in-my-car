@@ -21,7 +21,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 6626435746744235287}
   IsStream: 1
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
@@ -72,18 +72,21 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: -7923988845014599890}
   - {fileID: 3844805824068764402}
+  - {fileID: 4009457683835347752}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5199159010263730310}
   StringsBanks:
   - {fileID: 8912001126375132464}
   cacheVersion: 131858
-  cacheTime: 639067738318517635
+  cacheTime: 639068291032236979
   SerializableEventsDict:
   - key: event:/Ambience
     index: 0
   - key: event:/Footsteps
     index: 1
+  - key: event:/New Event
+    index: 2
 --- !u!114 &554973624066365236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,10 +102,10 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Sound Effects.bank
   Name: Sound Effects
   StudioPath: bank:/Sound Effects
-  lastModified: 639067738318517635
+  lastModified: 639068290568395247
   FileSizes:
   - Name: Desktop
-    Value: 124384
+    Value: 138880
   Exists: 1
 --- !u!114 &2779666125649218015
 MonoBehaviour:
@@ -152,6 +155,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 936
+--- !u!114 &4009457683835347752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/New Event
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/New Event
+  Guid:
+    Data1: 738583490
+    Data2: 1309203766
+    Data3: 1750901419
+    Data4: 1906701826
+  Banks:
+  - {fileID: 554973624066365236}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &5199159010263730310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +197,7 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639067640484183812
+  lastModified: 639068290566381767
   FileSizes:
   - Name: Desktop
     Value: 1074
@@ -187,10 +217,10 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 639067640484044489
+  lastModified: 639068291032236979
   FileSizes:
   - Name: Desktop
-    Value: 1497568
+    Value: 1497248
   Exists: 1
 --- !u!114 &8912001126375132464
 MonoBehaviour:
@@ -207,8 +237,8 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639067640484193650
+  lastModified: 639068290566417323
   FileSizes:
   - Name: Desktop
-    Value: 1018
+    Value: 1058
   Exists: 1
