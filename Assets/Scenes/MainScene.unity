@@ -1972,7 +1972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 2.9260864, y: 42.72113}
+  m_AnchoredPosition: {x: -0.000047684, y: -89}
   m_SizeDelta: {x: 776.2165, y: 82.70819}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &151063028
@@ -14845,8 +14845,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 2.9260752, y: -176.47397}
-  m_SizeDelta: {x: 776, y: 327.26}
+  m_AnchoredPosition: {x: 2.9260752, y: -235.77}
+  m_SizeDelta: {x: 776, y: 471.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2137807096
 MonoBehaviour:
@@ -14875,7 +14875,10 @@ MonoBehaviour:
 
 
     Tyre
-    texture from Textures4Photoshop'
+    texture from Textures4Photoshop
+
+
+    Playtesters: John'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 74f4bbe1ec1253242a157b08501ba396, type: 2}
   m_sharedMaterial: {fileID: -5513069640675734507, guid: 74f4bbe1ec1253242a157b08501ba396, type: 2}
