@@ -10,10 +10,14 @@ public class MenuButton : MonoBehaviour
     [SerializeField] private bool _initialSelection;
     [HideInInspector] public string buttonTextUnselected;
     [HideInInspector] public string buttonTextSelected;
+    
     private EventTrigger _eventTrigger;
     [HideInInspector] public Button button;
     [SerializeField] public TMPro.TMP_Text text;
-
+    public void UpdateSettings()
+    {
+        PlayerMovement.Instance.UpdateSettings();
+    }
     public void Awake()
     {
         buttonTextUnselected = text.text;

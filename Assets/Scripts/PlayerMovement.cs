@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Migrate to Settings later")]
     [Range(0f, 5000f)] public float WalkSpeed = 10f;
-    [Range(0.01f, .5f)] public float CameraSensitivity = 10f;
+    [HideInInspector] public float CameraSensitivity = 10f;
     private float _headBobCounter;
     public float RefreshRate = 60f;
     public bool InvertX;
@@ -51,7 +51,34 @@ public class PlayerMovement : MonoBehaviour
         }
 
         gameObject.AddComponent<ConstantForce>().force = new Vector3(0.0f, -20f, 0.0f);
+
+        // Set camera sensitivity
+        UpdateSettings();
     }
+    public void UpdateSettings()
+    {
+        const string SENS = "CameraSensitivity";
+        if (!PlayerPrefs.HasKey(SENS))
+        {
+            PlayerPrefs.SetFloat(SENS, 0.06f);
+        }
+        CameraSensitivity = PlayerPrefs.GetFloat(SENS);
+
+        const string INVX = "InvertX";
+        if (!PlayerPrefs.HasKey(INVX)) 
+        { 
+            PlayerPrefs.SetInt(INVX, 0);
+        }
+        InvertX = Meowtils.IntToBool( PlayerPrefs.GetInt(INVX) );
+
+        const string INVY = "InvertY";
+        if (!PlayerPrefs.HasKey(INVY))
+        {
+            PlayerPrefs.SetInt(INVY, 0);
+        }
+        InvertY = Meowtils.IntToBool(PlayerPrefs.GetInt(INVY));
+    }
+
     private void OnEnable()
     {
         _inputActions.FindActionMap("Player").Enable();
