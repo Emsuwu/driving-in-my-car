@@ -27,10 +27,10 @@ public class PauseController : MonoBehaviour
     }
     void Update()
     {
-        if (_pauseAction.WasPressedThisFrame()) { Pause(); }
+        if (_pauseAction.WasPressedThisFrame()) { TogglePause(); }
     }
 
-    private void Pause()
+    private void TogglePause()
     {
         _isPaused = !_isPaused;
         _pauseMenu.SetActive(_isPaused);
@@ -39,5 +39,11 @@ public class PauseController : MonoBehaviour
             _backToGameButton.Select();
         }
         else { Cursor.lockState = CursorLockMode.Locked; }
+    }
+    public void Unpause()
+    {
+        _isPaused = false;
+        _pauseMenu.SetActive(_isPaused);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
