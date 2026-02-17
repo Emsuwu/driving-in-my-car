@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [Range(0f, 5000f)] public float WalkSpeed = 10f;
     [HideInInspector] public float CameraSensitivity = 10f;
     private float _headBobCounter;
-    public float RefreshRate = 60f;
+    //public float RefreshRate = 60f;
     public bool InvertX;
     public bool InvertY;
 
@@ -41,14 +41,17 @@ public class PlayerMovement : MonoBehaviour
         _interactAction = InputSystem.actions.FindAction("Interact");
         _playerInteractScript = GetComponent<PlayerInteract>();
         _rb = GetComponent<Rigidbody>();
-        
 
-        // Get refresh rate
-        RefreshRate = (float)Screen.currentResolution.refreshRateRatio.value;
-        if (RefreshRate > 0)
-        {
-            Time.fixedDeltaTime = 1f / RefreshRate;
-        }
+
+        //// Get refresh rate
+        //if (RefreshRate < 59f) Time.fixedDeltaTime = 1f / 60f;
+        //RefreshRate = (float)Screen.currentResolution.refreshRateRatio.value;
+        //if (RefreshRate > 0)
+        //{
+        //    Time.fixedDeltaTime = 1f / RefreshRate;
+        //}
+
+        
 
         gameObject.AddComponent<ConstantForce>().force = new Vector3(0.0f, -20f, 0.0f);
 
