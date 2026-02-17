@@ -13,11 +13,21 @@ public class PauseController : MonoBehaviour
     private InputAction _pauseAction;
     public Vector2 NavigateAxis;
     private InputAction _navigate;
+
+    [SerializeField] private SwitchPauseMenu[] _backButtons;
+    public SwitchPauseMenu[] BackButtons { get { return _backButtons; } }
+    public GameObject PauseMenuPause;
+    public GameObject PauseMenuTitle;
+    
     private void Awake()
     {
         Instance = this;
         _pauseAction = InputSystem.actions.FindAction("Pause");
         _navigate = InputSystem.actions.FindAction("Navigate");
+    }
+    private void Start()
+    {
+        Pause();
     }
     private void OnEnable()
     {
@@ -47,6 +57,23 @@ public class PauseController : MonoBehaviour
         _isPaused = false;
         _pauseMenu.SetActive(_isPaused);
         Cursor.lockState = CursorLockMode.Locked;
-        
+    }
+    public void Pause()
+    {
+        _isPaused = true;
+        _pauseMenu.SetActive(_isPaused);
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void SwitchMenuActivationTarget(SwitchPauseMenu[] buttons, GameObject targetMenu)
+    {
+        foreach (SwitchPauseMenu button in buttons) 
+        {
+            button.ActivateMenu = targetMenu;
+        }
+    }
+    public void SwitchMenuActivationTarget(SwitchPauseMenu button, GameObject targetMenu)
+    {
+        button.ActivateMenu = targetMenu;
     }
 }
