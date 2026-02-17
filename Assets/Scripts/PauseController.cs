@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -18,6 +19,8 @@ public class PauseController : MonoBehaviour
     public SwitchPauseMenu[] BackButtons { get { return _backButtons; } }
     public GameObject PauseMenuPause;
     public GameObject PauseMenuTitle;
+
+    public static bool IsOnTitleScreen = true;
     
     private void Awake()
     {
@@ -27,8 +30,15 @@ public class PauseController : MonoBehaviour
     }
     private void Start()
     {
+        StartCoroutine(WaitFrameThenPause());
+    }
+
+    IEnumerator WaitFrameThenPause()
+    {
+        yield return new WaitForEndOfFrame();
         Pause();
     }
+
     private void OnEnable()
     {
         _inputActions.FindActionMap("UI").Enable();
