@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PauseController : MonoBehaviour
@@ -9,7 +10,7 @@ public class PauseController : MonoBehaviour
     private bool _isPaused = false;
     public static PauseController Instance;
     public bool IsPaused { get { return _isPaused; } }
-    [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] [FormerlySerializedAs("_pauseMenu")] private GameObject _menu;
     [SerializeField] private InputActionAsset _inputActions;
     private InputAction _pauseAction;
     public Vector2 NavigateAxis;
@@ -56,7 +57,7 @@ public class PauseController : MonoBehaviour
     private void TogglePause()
     {
         _isPaused = !_isPaused;
-        _pauseMenu.SetActive(_isPaused);
+        _menu.SetActive(_isPaused);
         if (_isPaused) { 
             Cursor.lockState = CursorLockMode.None;
         }
@@ -65,13 +66,13 @@ public class PauseController : MonoBehaviour
     public void Unpause()
     {
         _isPaused = false;
-        _pauseMenu.SetActive(_isPaused);
+        _menu.SetActive(_isPaused);
         Cursor.lockState = CursorLockMode.Locked;
     }
     public void Pause()
     {
         _isPaused = true;
-        _pauseMenu.SetActive(_isPaused);
+        _menu.SetActive(_isPaused);
         Cursor.lockState = CursorLockMode.None;
     }
 

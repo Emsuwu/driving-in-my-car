@@ -16727,12 +16727,12 @@ GameObject:
   - component: {fileID: 2051425281}
   - component: {fileID: 2051425280}
   m_Layer: 5
-  m_Name: Pause
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2051425279
 RectTransform:
   m_ObjectHideFlags: 0
