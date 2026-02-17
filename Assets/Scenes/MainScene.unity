@@ -5971,8 +5971,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NewGameButton, Assembly-CSharp
+      - m_Target: {fileID: 683046130}
+        m_TargetAssemblyTypeName: NewMenuButton, Assembly-CSharp
         m_MethodName: OnTrigger
         m_Mode: 1
         m_Arguments:
