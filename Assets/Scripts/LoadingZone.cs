@@ -6,7 +6,7 @@ public class LoadingZone : MonoBehaviour
     public GameObject[] deactivateTargets = null;
     public GameObject[] activateTargets = null;
 
-    public void Trigger()
+    public void OnTrigger()
     {
         Activate();
         Deactivate();
