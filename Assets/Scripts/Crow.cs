@@ -6,6 +6,10 @@ public class Crow : MonoBehaviour
     public Vector3 Travel = new Vector3 (0f, 500f, -100f);
     [SerializeField] private Animator _animator;
 
+    public void Caw()
+    {
+        AudioManager.PlayOneShotAttached(AudioEvents.Current.CrowCawSound, gameObject);
+    }
     public void Spook()
     {
         _animator.SetTrigger("Fly");
@@ -23,8 +27,6 @@ public class Crow : MonoBehaviour
                 y + Travel.y * Time.deltaTime, 
                 z + Travel.z * Time.deltaTime);
             yield return new WaitForEndOfFrame();
-
-            Debug.Log(y + Travel.y * Time.deltaTime + ", " + transform.position.y);
         }
         Destroy(gameObject);
     }

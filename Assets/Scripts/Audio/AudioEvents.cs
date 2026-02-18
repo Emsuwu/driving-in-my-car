@@ -8,9 +8,9 @@ public class AudioEvents : MonoBehaviour
     public static AudioEvents Current;
     private void Awake() { Current = this; }
 
+    public EventReference CrowCawSound;
     public EventReference AmbienceSound;
     private EventInstance _ambienceInstance;
-
     public EventReference ButtonHoverSound;
 
     private void Start()
