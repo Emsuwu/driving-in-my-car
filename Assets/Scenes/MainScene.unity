@@ -2790,11 +2790,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   CrowCawSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1919597238
+      Data2: 1295182236
+      Data3: -706069859
+      Data4: 1070629788
+    Path: event:/CrowCaw
   AmbienceSound:
     Guid:
       Data1: -1099664005
@@ -4652,6 +4652,14 @@ PrefabInstance:
     - target: {fileID: 2874229309609993142, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227245504065168267, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
+      propertyPath: Travel.y
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227245504065168267, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
+      propertyPath: Travel.z
+      value: 8.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9614,8 +9622,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.4105988, y: 8.46, z: 40.56}
-  m_Center: {x: -9.705299, y: 3.81, z: 2.92}
+  m_Size: {x: 18.204788, y: 8.46, z: 40.56}
+  m_Center: {x: -15.602394, y: 3.81, z: 2.92}
 --- !u!114 &1270216019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15981,6 +15989,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5227245504065168267, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
+      propertyPath: Travel.y
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19119,7 +19131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2874229309609993142, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.03883362
       objectReference: {fileID: 0}
     - target: {fileID: 2874229309609993142, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19127,23 +19139,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2874229309609993142, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.049804688
       objectReference: {fileID: 0}
     - target: {fileID: 2874229309609993142, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.13052677
       objectReference: {fileID: 0}
     - target: {fileID: 2874229309609993142, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2874229309609993142, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.9914448
       objectReference: {fileID: 0}
     - target: {fileID: 2874229309609993142, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2874229309609993142, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -19151,11 +19163,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2874229309609993142, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -195
       objectReference: {fileID: 0}
     - target: {fileID: 2874229309609993142, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227245504065168267, guid: 4663d785366dc164fa67d6ca9e8be9bf, type: 3}
+      propertyPath: Travel.z
+      value: -8.84
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

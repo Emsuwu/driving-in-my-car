@@ -17,6 +17,7 @@ public class Crow : MonoBehaviour
     }
     private IEnumerator FlyOff()
     {
+        yield return new WaitForSeconds(Random.Range(0f,.5f));
         for (int i = 0; i < 500; i++)
         {
             float x = transform.position.x;
