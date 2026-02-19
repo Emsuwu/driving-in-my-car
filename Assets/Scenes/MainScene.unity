@@ -7773,10 +7773,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26b922a43e44754f87ed0e29345a1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Version: 2.19.0-dev
-  Subversion: 0
-  BuildType: 0
   _versionText: {fileID: 1644555546}
+  Scheme: 1
+  Version: 2.19.0-dev
+  MinorVersion: 0
+  MajorVersion: 0
+  IncludePatchAfterMinor: 0
+  PatchNumber: 1
+  IncludeBuildType: 1
+  BuildType: 0
+  BuildTypeDelimiter: '-'
 --- !u!4 &898442352
 Transform:
   m_ObjectHideFlags: 0

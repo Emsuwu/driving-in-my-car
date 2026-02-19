@@ -6,36 +6,64 @@ using NaughtyAttributes;
 
 public class BuildVersion : MonoBehaviour
 {
+    [SerializeField] private TMPro.TMP_Text _versionText;
     public enum BUILDTYPE { Dev, Alpha, Beta, PreRelease, Release }
     private Dictionary<BUILDTYPE, string> _buildTypeDict = new Dictionary<BUILDTYPE, string>();
 
+    [BoxGroup("Scheme")] public SCHEME Scheme;
+
     [BoxGroup("Build Version")]
     public string Version = "";
-    [Range(0,10)] public int Subversion = 0;
-    public BUILDTYPE BuildType = BUILDTYPE.Dev;
+    [BoxGroup("Build Version"), Min(0)] public int MinorVersion = 0;
+    [BoxGroup("Build Version"), ShowIf("ShowMajorNumber")] public int MajorVersion = 0;
+
+    [BoxGroup("Patch")]
+    public bool IncludePatchAfterMinor = false;
+    [BoxGroup("Patch"), ShowIf("IncludePatchAfterMinor")] public string PatchNumber = "";
+
+    [BoxGroup("Build Type")] public bool IncludeBuildType = true;
+    [BoxGroup("Build Type"), ShowIf("IncludeBuildType")] public BUILDTYPE BuildType = BUILDTYPE.Dev;
+    [BoxGroup("Build Type"), ShowIf("IncludeBuildType")] public string BuildTypeDelimiter = "-";
+    
+
+    private bool ShowMajorNumber()
+    {
+        if (Scheme == SCHEME.YearMajorMinorBuildType) return true;
+        if (Scheme == SCHEME.MajorMinorBuildType) return true;
+        return false;
+    }
+
+    public enum SCHEME {
+        [InspectorName("Year.Month.Day.Minor-BuildType")]
+        YearMonthDayMinorBuildType,
+        [InspectorName("Month.Day.Minor-BuildType")]
+        MonthDayMinorBuildType,
+        [InspectorName("Year.Major.Minor-BuildType")]
+        YearMajorMinorBuildType,
+        [InspectorName("Major.Minor-BuildType")]
+        MajorMinorBuildType
+    }
 
     [Button("Generate version number")] private void SetVersionButton()
     {
-        SetVersionBasedOnDate();
+        SetVersion();
     }
 
-    [Button("Increment Subversion")]
-    private void IncrementSubversion()
+    [Button("Increment Minor Version")]
+    private void IncrementMinorVersion()
     {
-        Subversion += 1;
-        SetVersionBasedOnDate();
+        MinorVersion += 1;
+        SetVersion();
     }
-    [Button("Decrement Subversion")]
-    private void DecrementSubversion()
+    [Button("Decrement Minor Version")]
+    private void DecrementMinorVersion()
     {
-        Subversion -= 1;
-        Subversion = Math.Clamp(Subversion, 0, int.MaxValue);
-        SetVersionBasedOnDate();
+        MinorVersion -= 1;
+        MinorVersion = Math.Clamp(MinorVersion, 0, int.MaxValue);
+        SetVersion();
     }
 
-
-    [BoxGroup("References")]
-    [SerializeField] private TMPro.TMP_Text _versionText;
+    
 
     private void BuildDict()
     {
@@ -43,14 +71,36 @@ public class BuildVersion : MonoBehaviour
         _buildTypeDict.Add(BUILDTYPE.Beta, "beta"); _buildTypeDict.Add(BUILDTYPE.PreRelease, "pre-release");
         _buildTypeDict.Add(BUILDTYPE.Release, "release");
     }
-    private void SetVersionBasedOnDate()
+    private void SetVersion()
     {
         if (!_buildTypeDict.ContainsKey(BUILDTYPE.Dev)) BuildDict();
 
-        string subheading;
-        _buildTypeDict.TryGetValue(BuildType, out subheading);
-        Version = $"{DateTime.Now.Month}.{DateTime.Now.Day}.{Subversion}-{subheading}";
+        switch (Scheme)
+        {
+            case SCHEME.YearMonthDayMinorBuildType:
+                Version = $"{DateTime.Now.Year}.{DateTime.Now.Month}.{DateTime.Now.Day}.{MinorVersion}";
+                break;
+            case SCHEME.MonthDayMinorBuildType:
+                Version = $"{DateTime.Now.Month}.{DateTime.Now.Day}.{MinorVersion}";
+                break;
+            case SCHEME.YearMajorMinorBuildType:
+                Version = $"{DateTime.Now.Year}.{MajorVersion}.{MinorVersion}";
+                break;
+            case SCHEME.MajorMinorBuildType:
+                Version = $"{MajorVersion}.{MinorVersion}";
+                break;
+        }
+
+        if (IncludePatchAfterMinor)
+        {
+            Version += $".{PatchNumber}";
+        }
+
+        string buildtype;
+        _buildTypeDict.TryGetValue(BuildType, out buildtype);
+        if (IncludeBuildType) Version += BuildTypeDelimiter + buildtype;
         _versionText.text = Version;
+
     }
     private void Awake()
     {
