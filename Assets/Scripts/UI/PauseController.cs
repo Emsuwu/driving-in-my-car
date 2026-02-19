@@ -12,6 +12,7 @@ public class PauseController : MonoBehaviour
     public bool IsPaused { get { return _isPaused; } }
     [SerializeField] [FormerlySerializedAs("_pauseMenu")] private GameObject _menu;
     [SerializeField] private InputActionAsset _inputActions;
+    [SerializeField] private GameObject _debugPrint;
     private InputAction _pauseAction;
     public Vector2 NavigateAxis;
     private InputAction _navigate;
@@ -52,10 +53,31 @@ public class PauseController : MonoBehaviour
     {
         if (_pauseAction.WasPressedThisFrame()) { TogglePause(); }
         NavigateAxis = _navigate.ReadValue<Vector2>();
+        
+        if (Keyboard.current.digit0Key.wasPressedThisFrame)
+        {
+            PrintDebugInfo();
+        }
+        if (Keyboard.current.digit9Key.wasPressedThisFrame)
+        {
+            _debugPrint.SetActive(false);
+        }
+
+    }
+
+    public void PrintDebugInfo()
+    {
+        _debugPrint.SetActive(true);
+        TMPro.TMP_Text t = _debugPrint.GetComponent<TMPro.TMP_Text>();
+
+        t.text = "Debug info\r\nPress [9] to close. Press [0] to refresh.\r\n_______________________________\r\n";
+
+        t.text += ($"\r\nIsOnTitleScreen: {IsOnTitleScreen}");
     }
 
     private void TogglePause()
     {
+        if (IsOnTitleScreen) return;
         _isPaused = !_isPaused;
         _menu.SetActive(_isPaused);
         if (_isPaused) { 

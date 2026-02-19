@@ -9,7 +9,9 @@ using static UnityEngine.Timeline.DirectorControlPlayable;
 public class MenuVolumeButton : MenuButton
 {
     private FMOD.Studio.Bus _targetBus;
-    [SerializeField] private string _targetBusName;
+    [Header("Volume target")]
+    [SerializeField] private string _targetBusName = "bus:/";
+    private bool _isMouseHovered;
     private float _vol;
 
     new private void Awake()

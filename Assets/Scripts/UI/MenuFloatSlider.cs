@@ -1,14 +1,23 @@
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class MenuFloatPlayerPrefEditorButton : MenuButton
+public class MenuFloatSlider : MenuButton
 {
-    [SerializeField] float _clampMax;
+    [Header("Set minimum and maximum for slider")]
     [SerializeField] float _clampMin;
+    [SerializeField] float _clampMax;
+    [Header("What PlayerPref key should be set?")]
     [SerializeField] string _prefKey;
+    [Header("What is the initial value if key doesn't exist?")]
     [SerializeField] float _defaultValue;
+    [Header("How quickly should the slider change?")]
     [SerializeField] float _changeSpeed = 1f;
+    [SerializeField] float _dragChangeSpeed = .005f;
+    [Header("Percentage denominator")]
     [SerializeField] private float _denominator = 1f;
+
+    private float _lastMouseX;
 
     new private void Awake()
     {
@@ -25,6 +34,8 @@ public class MenuFloatPlayerPrefEditorButton : MenuButton
     }
     private void Update()
     {
+        text.text = buttonTextUnselected + $" [{Mathf.Round(PlayerPrefs.GetFloat(_prefKey) / _denominator * 100)}%]";
+
         if (!isSelected) return;
 
         if (PauseController.Instance.NavigateAxis.x > .1)
@@ -36,14 +47,32 @@ public class MenuFloatPlayerPrefEditorButton : MenuButton
         else if (PauseController.Instance.NavigateAxis.x < -.1)
         {
             float n = PlayerPrefs.GetFloat(_prefKey) - Time.deltaTime * _changeSpeed;
-            PlayerPrefs.SetFloat(_prefKey, PlayerPrefs.GetFloat(_prefKey) - Time.deltaTime * _changeSpeed);
+            PlayerPrefs.SetFloat(_prefKey, PlayerPrefs.GetFloat(_prefKey) - Time.deltaTime);
+            UpdateSettings();
+        }
+        else if (Mouse.current.leftButton.isPressed)
+        {
+            float mxDelta = Mouse.current.position.ReadValue().x - _lastMouseX;
+
+            float n = PlayerPrefs.GetFloat(_prefKey) + mxDelta * _dragChangeSpeed;
+            PlayerPrefs.SetFloat(_prefKey, n);
+            UpdateSettings();
+        }
+        else if (Mouse.current.rightButton.isPressed)
+        {
+            PlayerPrefs.SetFloat(_prefKey, _defaultValue);
             UpdateSettings();
         }
 
-        PlayerPrefs.SetFloat(_prefKey, Mathf.Clamp(PlayerPrefs.GetFloat(_prefKey), _clampMin, _clampMax) );
+        _lastMouseX = Mouse.current.position.ReadValue().x;
+
+        PlayerPrefs.SetFloat(_prefKey, Mathf.Clamp(PlayerPrefs.GetFloat(_prefKey), _clampMin, _clampMax));
 
         text.text = buttonTextSelected + $" [{Mathf.Round(PlayerPrefs.GetFloat(_prefKey) / _denominator * 100)}%]";
 
+        /* Really I should make a MenuAudioBusFloatSlider child class that only 
+        updates buses from there but whatever this works :3*/
+        
     }
 
     new public void Select()

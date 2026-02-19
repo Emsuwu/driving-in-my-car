@@ -6,13 +6,26 @@ using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
+    public FMOD.Studio.Bus MasterBus;
+    public FMOD.Studio.Bus SoundEffectsBus;
+    public FMOD.Studio.Bus AmbienceBus;
+    public FMOD.Studio.Bus MusicBus;
+
     private static List<EventInstance> _currentEventInstances = new List<EventInstance>();
 
     public static AudioManager Current;
     private void Awake()
     {
+        MasterBus = RuntimeManager.GetBus("bus:/");
+        SoundEffectsBus = RuntimeManager.GetBus("bus:/SoundEffects");
+        AmbienceBus = RuntimeManager.GetBus("bus:/Ambience");
+        MusicBus = RuntimeManager.GetBus("bus:/Music");
         if (Current == null) Current = this;
         else Debug.LogWarning("There must only be 1 AudioManager in any given scene.");
+    }
+    private void Start()
+    {
+        UpdateBusesFromPrefs();
     }
 
     // Playing OneShots
@@ -115,5 +128,18 @@ public class AudioManager : MonoBehaviour
     public void OnDestroy()
     {
         StopAllInstances();
+    }
+
+    public static void UpdateBusesFromPrefs()
+    {
+        if (!PlayerPrefs.HasKey("MasterBus")) PlayerPrefs.SetFloat("MasterBus", 1f);
+        if (!PlayerPrefs.HasKey("AmbienceBus")) PlayerPrefs.SetFloat("AmbienceBus", 1f);
+        if (!PlayerPrefs.HasKey("MusicBus")) PlayerPrefs.SetFloat("MusicBus", 1f);
+        if (!PlayerPrefs.HasKey("SoundEffectsBus")) PlayerPrefs.SetFloat("SoundEffectsBus", 1f);
+
+        AudioManager.Current.MasterBus.setVolume(PlayerPrefs.GetFloat("MasterBus"));
+        AudioManager.Current.AmbienceBus.setVolume(PlayerPrefs.GetFloat("AmbienceBus"));
+        AudioManager.Current.MusicBus.setVolume(PlayerPrefs.GetFloat("MusicBus"));
+        AudioManager.Current.SoundEffectsBus.setVolume(PlayerPrefs.GetFloat("SoundEffectsBus"));
     }
 }

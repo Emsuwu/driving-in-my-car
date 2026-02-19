@@ -5,18 +5,24 @@ using UnityEngine.UI;
 
 public class MenuButton : MonoBehaviour
 {
+    [Header("Button text")]
+    [SerializeField] public TMPro.TMP_Text text;
     private bool _isSelected;
     public bool isSelected { get { return _isSelected; } }
+    [Header("Set this MenuButton as the initial selection?")]
     [SerializeField] private bool _initialSelection;
     [HideInInspector] public string buttonTextUnselected;
     [HideInInspector] public string buttonTextSelected;
-    
+
+    [Header("Set cursor type on hover?")]
+    [SerializeField] private MouseType.CURSOR _cursorType;
+
     private EventTrigger _eventTrigger;
     [HideInInspector] public Button button;
-    [SerializeField] public TMPro.TMP_Text text;
     public void UpdateSettings()
     {
         PlayerMovement.Instance.UpdateSettings();
+        AudioManager.UpdateBusesFromPrefs();
     }
     public void Awake()
     {
@@ -44,13 +50,13 @@ public class MenuButton : MonoBehaviour
         EventTrigger pointerEnter = GetComponentInParent<EventTrigger>();
         EventTrigger.Entry pointerEnterEntry = new EventTrigger.Entry();
         pointerEnterEntry.eventID = EventTriggerType.PointerEnter;
-        pointerEnterEntry.callback.AddListener((eventData) => { Select(); });
+        pointerEnterEntry.callback.AddListener((eventData) => { MouseHover(); });
         _eventTrigger.triggers.Add(pointerEnterEntry);
 
         EventTrigger pointerExit = GetComponentInParent<EventTrigger>();
         EventTrigger.Entry pointerExitEntry = new EventTrigger.Entry();
         pointerExitEntry.eventID = EventTriggerType.PointerExit;
-        pointerExitEntry.callback.AddListener((eventData) => { Deselect(); });
+        pointerExitEntry.callback.AddListener((eventData) => { MouseUnhover(); });
         _eventTrigger.triggers.Add(pointerExitEntry);
 
         EventTrigger selected = GetComponentInParent<EventTrigger>();
@@ -64,6 +70,17 @@ public class MenuButton : MonoBehaviour
         deselectedEntry.eventID = EventTriggerType.Deselect;
         deselectedEntry.callback.AddListener((eventData) => { Deselect(); });
         _eventTrigger.triggers.Add(deselectedEntry);
+    }
+
+    public void MouseHover()
+    {
+        MouseType.SetCursor(_cursorType);
+        Select();
+    }
+    public void MouseUnhover()
+    {
+        MouseType.Pointer();
+        Deselect();
     }
     public void Select() {
         _isSelected = true;
