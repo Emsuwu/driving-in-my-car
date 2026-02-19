@@ -2,18 +2,39 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class BuildVersion : MonoBehaviour
 {
     public enum BUILDTYPE { Dev, Alpha, Beta, PreRelease, Release }
     private Dictionary<BUILDTYPE, string> _buildTypeDict = new Dictionary<BUILDTYPE, string>();
 
-    [Header("Build Version")]
-    [ContextMenuItem("Generate version number", "SetVersionBasedOnDate")] public string Version = "";
-    [Header("Subversion")]
-    [ContextMenuItem("Generate version number", "SetVersionBasedOnDate"), Range(0, 10)] public int Subversion = 0;
-    [ContextMenuItem("Generate version number", "SetVersionBasedOnDate")] public BUILDTYPE BuildType = BUILDTYPE.Dev;
+    [BoxGroup("Build Version")]
+    public string Version = "";
+    [Range(0,10)] public int Subversion = 0;
+    public BUILDTYPE BuildType = BUILDTYPE.Dev;
 
+    [Button("Generate version number")] private void SetVersionButton()
+    {
+        SetVersionBasedOnDate();
+    }
+
+    [Button("Increment Subversion")]
+    private void IncrementSubversion()
+    {
+        Subversion += 1;
+        SetVersionBasedOnDate();
+    }
+    [Button("Decrement Subversion")]
+    private void DecrementSubversion()
+    {
+        Subversion -= 1;
+        Subversion = Math.Clamp(Subversion, 0, int.MaxValue);
+        SetVersionBasedOnDate();
+    }
+
+
+    [BoxGroup("References")]
     [SerializeField] private TMPro.TMP_Text _versionText;
 
     private void BuildDict()
