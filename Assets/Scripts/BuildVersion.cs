@@ -1,11 +1,13 @@
+using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
-using NaughtyAttributes;
 
 public class BuildVersion : MonoBehaviour
 {
+    public static BuildVersion Current;
     [SerializeField] private TMPro.TMP_Text _versionText;
     public enum BUILDTYPE { Dev, Alpha, Beta, PreRelease, Release }
     private Dictionary<BUILDTYPE, string> _buildTypeDict = new Dictionary<BUILDTYPE, string>();
@@ -24,7 +26,7 @@ public class BuildVersion : MonoBehaviour
     [BoxGroup("Build Type")] public bool IncludeBuildType = true;
     [BoxGroup("Build Type"), ShowIf("IncludeBuildType")] public BUILDTYPE BuildType = BUILDTYPE.Dev;
     [BoxGroup("Build Type"), ShowIf("IncludeBuildType")] public string BuildTypeDelimiter = "-";
-    
+
 
     private bool ShowMajorNumber()
     {
@@ -33,7 +35,8 @@ public class BuildVersion : MonoBehaviour
         return false;
     }
 
-    public enum SCHEME {
+    public enum SCHEME
+    {
         [InspectorName("Year.Month.Day.Minor-BuildType")]
         YearMonthDayMinorBuildType,
         [InspectorName("Month.Day.Minor-BuildType")]
@@ -44,7 +47,8 @@ public class BuildVersion : MonoBehaviour
         MajorMinorBuildType
     }
 
-    [Button("Generate version number")] private void SetVersionButton()
+    [Button("Generate version number")]
+    private void SetVersionButton()
     {
         SetVersion();
     }
@@ -63,7 +67,7 @@ public class BuildVersion : MonoBehaviour
         SetVersion();
     }
 
-    
+
 
     private void BuildDict()
     {
@@ -71,7 +75,8 @@ public class BuildVersion : MonoBehaviour
         _buildTypeDict.Add(BUILDTYPE.Beta, "beta"); _buildTypeDict.Add(BUILDTYPE.PreRelease, "pre-release");
         _buildTypeDict.Add(BUILDTYPE.Release, "release");
     }
-    private void SetVersion()
+
+    public void SetVersion()
     {
         if (!_buildTypeDict.ContainsKey(BUILDTYPE.Dev)) BuildDict();
 
@@ -105,5 +110,15 @@ public class BuildVersion : MonoBehaviour
     private void Awake()
     {
         _versionText.text = Version;
+    }
+}
+
+[ExecuteInEditMode]
+public class Autorun : MonoBehaviour
+{
+    private void Awake()
+    {
+        BuildVersion.Current.SetVersion();
+        Debug.Log("Automatically set build number");
     }
 }
