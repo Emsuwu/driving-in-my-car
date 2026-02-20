@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -6,6 +7,8 @@ public class MoveCar : MonoBehaviour
     [SerializeField] private SplineAnimate _splineAnimate;
     private float _distanceToPlayer;
     public float FollowAtDistance = 80f;
+
+    [SerializeField] private EventReference _carEngineSound;
 
     private void Start()
     {
