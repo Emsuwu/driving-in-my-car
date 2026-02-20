@@ -9121,31 +9121,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7001238901373810324, guid: a5c717df0ecca18419cb4c10f9ccbf12, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 79.02457
+      value: 26.83315
       objectReference: {fileID: 0}
     - target: {fileID: 7001238901373810324, guid: a5c717df0ecca18419cb4c10f9ccbf12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.019824987
+      value: 0.97
       objectReference: {fileID: 0}
     - target: {fileID: 7001238901373810324, guid: a5c717df0ecca18419cb4c10f9ccbf12, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -493.27884
+      value: -102.01951
       objectReference: {fileID: 0}
     - target: {fileID: 7001238901373810324, guid: a5c717df0ecca18419cb4c10f9ccbf12, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.013902349
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 7001238901373810324, guid: a5c717df0ecca18419cb4c10f9ccbf12, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00011000232
+      value: -0.000002087545
       objectReference: {fileID: 0}
     - target: {fileID: 7001238901373810324, guid: a5c717df0ecca18419cb4c10f9ccbf12, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9999034
+      value: 0.0005224102
       objectReference: {fileID: 0}
     - target: {fileID: 7001238901373810324, guid: a5c717df0ecca18419cb4c10f9ccbf12, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000015259866
+      value: 0.00022631988
       objectReference: {fileID: 0}
     - target: {fileID: 7001238901373810324, guid: a5c717df0ecca18419cb4c10f9ccbf12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9170,6 +9170,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7665888541615352878, guid: a5c717df0ecca18419cb4c10f9ccbf12, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1120288335}
+    - targetCorrespondingSourceObject: {fileID: 7665888541615352878, guid: a5c717df0ecca18419cb4c10f9ccbf12, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1120288336}
   m_SourcePrefab: {fileID: 100100000, guid: a5c717df0ecca18419cb4c10f9ccbf12, type: 3}
 --- !u!1 &1120288334 stripped
 GameObject:
@@ -9189,16 +9192,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineAnimate
   m_Target: {fileID: 1406049955}
-  m_PlayOnAwake: 1
-  m_LoopMode: 0
-  m_Method: 0
-  m_Duration: 10
-  m_MaxSpeed: 135.80276
+  m_PlayOnAwake: 0
+  m_LoopMode: 1
+  m_Method: 1
+  m_Duration: 75.44598
+  m_MaxSpeed: 18
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 0
   m_ObjectUpAxis: 1
   m_StartOffset: 0
+--- !u!114 &1120288336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120288334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9669f2b889d6a3946b6e1ee3f2ff1443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _splineAnimate: {fileID: 1120288335}
+  FollowAtDistance: 150
 --- !u!64 &1169032082
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13934,7 +13951,7 @@ Transform:
   m_GameObject: {fileID: 1406049954}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.83315, y: -0.0229702, z: -102.01951}
+  m_LocalPosition: {x: 26.83315, y: 0.97, z: -102.01951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17439,7 +17456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7820977326035604287, guid: db96149d372cf3943aa007635d54a22a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7832954316674271376, guid: db96149d372cf3943aa007635d54a22a, type: 3}
       propertyPath: m_Layer

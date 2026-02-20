@@ -3,8 +3,9 @@ using UnityEngine.Splines;
 
 public class MoveCar : MonoBehaviour
 {
-    private SplineAnimate _splineAnimate;
+    [SerializeField] private SplineAnimate _splineAnimate;
     private float _distanceToPlayer;
+    public float FollowAtDistance = 80f;
 
     private void Start()
     {
@@ -13,9 +14,10 @@ public class MoveCar : MonoBehaviour
 
     private void Update()
     {
-        if (_splineAnimate == null) return;
+
         _distanceToPlayer = Vector3.Distance(transform.position, PlayerMovement.Instance.transform.position);
-        if (_distanceToPlayer < 20)
+
+        if (_distanceToPlayer > FollowAtDistance)
         {
             _splineAnimate.Play();
         }
