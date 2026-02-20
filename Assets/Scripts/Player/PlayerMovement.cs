@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Migrate to Settings later")]
     [Range(0f, 5000f)] public float WalkSpeed = 10f;
+    private float _defaultWalkSpeed;
     [HideInInspector] public float CameraSensitivity = 10f;
     private float _headBobCounter;
     //public float RefreshRate = 60f;
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        _defaultWalkSpeed = WalkSpeed;
         _playerFootstepsScript = GetComponent<PlayerFootsteps>();
         _lookCamX = _camera.transform.rotation.x;
         _lookPlayerY = transform.rotation.y;
@@ -60,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public void UpdateSettings()
     {
+
+
         const string SENS = "CameraSensitivity";
         if (!PlayerPrefs.HasKey(SENS))
         {
@@ -93,6 +97,18 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (_interactAction.WasPressedThisFrame()) { _playerInteractScript.Interact(); }
+
+        if (Keyboard.current.digit8Key.wasPressedThisFrame)
+        {
+            if (WalkSpeed < 1000f)
+            {
+                WalkSpeed = 5000f;
+            }
+            else
+            {
+                WalkSpeed = _defaultWalkSpeed;
+            }
+        }
     }
     private void LateUpdate()
     {
