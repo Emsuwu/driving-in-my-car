@@ -1,11 +1,13 @@
 using FMOD.Studio;
 using FMODUnity;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static UnityEngine.Timeline.DirectorControlPlayable;
 
+[Obsolete("Please use MenuFloatSlider instead", true)]
 public class MenuVolumeButton : MenuButton
 {
     private FMOD.Studio.Bus _targetBus;
