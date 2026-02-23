@@ -23,6 +23,8 @@ public class MenuButton : MonoBehaviour
     {
         PlayerMovement.Instance.UpdateSettings();
         AudioManager.UpdateBusesFromPrefs();
+        GlobalSettings.Instance.UpdateSettings();
+        Debug.Log("Updated 1");
     }
     public void Awake()
     {
