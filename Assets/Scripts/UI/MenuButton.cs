@@ -76,6 +76,7 @@ public class MenuButton : MonoBehaviour
 
     public void MouseHover()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         MouseType.SetCursor(_cursorType);
         Select();
     }

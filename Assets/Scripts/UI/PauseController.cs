@@ -13,6 +13,7 @@ public class PauseController : MonoBehaviour
     [SerializeField] [FormerlySerializedAs("_pauseMenu")] private GameObject _menu;
     [SerializeField] private InputActionAsset _inputActions;
     [SerializeField] private GameObject _debugPrint;
+    [SerializeField] public Menu CurrentMenu;
     private InputAction _pauseAction;
     public Vector2 NavigateAxis;
     private InputAction _navigate;
@@ -51,7 +52,7 @@ public class PauseController : MonoBehaviour
     }
     void Update()
     {
-        if (_pauseAction.WasPressedThisFrame()) { TogglePause(); }
+        if (_pauseAction.WasPressedThisFrame()) { Esc(); }
         NavigateAxis = _navigate.ReadValue<Vector2>();
         
         if (Keyboard.current.digit0Key.wasPressedThisFrame)
@@ -75,15 +76,18 @@ public class PauseController : MonoBehaviour
         t.text += ($"\r\nIsOnTitleScreen: {IsOnTitleScreen}");
     }
 
-    private void TogglePause()
+    private void Esc()
     {
-        if (IsOnTitleScreen) return;
-        _isPaused = !_isPaused;
-        _menu.SetActive(_isPaused);
-        if (_isPaused) { 
+        // if (IsOnTitleScreen) return;
+
+        if (!_isPaused) { 
+            _isPaused = true;
+            _menu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
         }
-        else { Cursor.lockState = CursorLockMode.Locked; }
+        else{
+            CurrentMenu.TriggerBack();
+        }
     }
     public void Unpause()
     {

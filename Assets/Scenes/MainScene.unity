@@ -3456,6 +3456,7 @@ GameObject:
   - component: {fileID: 159823855}
   - component: {fileID: 159823857}
   - component: {fileID: 159823856}
+  - component: {fileID: 159823858}
   m_Layer: 5
   m_Name: Menu | Title
   m_TagString: Untagged
@@ -3522,6 +3523,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159823854}
   m_CullTransparentMesh: 1
+--- !u!114 &159823858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159823854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e9012ee250e0c4ab1328d0acb825da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _backButton: {fileID: 0}
 --- !u!64 &160147822
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4069,6 +4083,7 @@ MonoBehaviour:
   _menu: {fileID: 2051425278}
   _inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _debugPrint: {fileID: 1979496732}
+  CurrentMenu: {fileID: 0}
   NavigateAxis: {x: 0, y: 0}
   _backButtons:
   - {fileID: 1963827268}
@@ -5282,6 +5297,7 @@ GameObject:
   - component: {fileID: 369392177}
   - component: {fileID: 369392179}
   - component: {fileID: 369392178}
+  - component: {fileID: 369392180}
   m_Layer: 5
   m_Name: Menu | Controls
   m_TagString: Untagged
@@ -5348,6 +5364,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369392176}
   m_CullTransparentMesh: 1
+--- !u!114 &369392180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369392176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e9012ee250e0c4ab1328d0acb825da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Menu
+  _backButton: {fileID: 328469932}
 --- !u!1 &389850121
 GameObject:
   m_ObjectHideFlags: 0
@@ -5496,6 +5525,7 @@ GameObject:
   - component: {fileID: 398173990}
   - component: {fileID: 398173992}
   - component: {fileID: 398173991}
+  - component: {fileID: 398173993}
   m_Layer: 5
   m_Name: Menu | Video
   m_TagString: Untagged
@@ -5562,6 +5592,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398173989}
   m_CullTransparentMesh: 1
+--- !u!114 &398173993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398173989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e9012ee250e0c4ab1328d0acb825da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Menu
+  _backButton: {fileID: 469351443}
 --- !u!1 &411372919
 GameObject:
   m_ObjectHideFlags: 0
@@ -8454,6 +8497,7 @@ GameObject:
   - component: {fileID: 839108116}
   - component: {fileID: 839108118}
   - component: {fileID: 839108117}
+  - component: {fileID: 839108119}
   m_Layer: 5
   m_Name: Menu | Audio
   m_TagString: Untagged
@@ -8520,6 +8564,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839108115}
   m_CullTransparentMesh: 1
+--- !u!114 &839108119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839108115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e9012ee250e0c4ab1328d0acb825da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Menu
+  _backButton: {fileID: 1963827265}
 --- !u!1 &846031661
 GameObject:
   m_ObjectHideFlags: 0
@@ -17849,6 +17906,7 @@ GameObject:
   - component: {fileID: 1767072291}
   - component: {fileID: 1767072293}
   - component: {fileID: 1767072292}
+  - component: {fileID: 1767072294}
   m_Layer: 5
   m_Name: Menu | Credits
   m_TagString: Untagged
@@ -17915,6 +17973,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767072290}
   m_CullTransparentMesh: 1
+--- !u!114 &1767072294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767072290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e9012ee250e0c4ab1328d0acb825da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Menu
+  _backButton: {fileID: 151063030}
 --- !u!1 &1769199455
 GameObject:
   m_ObjectHideFlags: 0
@@ -22217,6 +22288,7 @@ GameObject:
   - component: {fileID: 1992498089}
   - component: {fileID: 1992498091}
   - component: {fileID: 1992498090}
+  - component: {fileID: 1992498092}
   m_Layer: 5
   m_Name: Menu | Pause
   m_TagString: Untagged
@@ -22283,6 +22355,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992498088}
   m_CullTransparentMesh: 1
+--- !u!114 &1992498092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992498088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e9012ee250e0c4ab1328d0acb825da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Menu
+  _backButton: {fileID: 996186637}
 --- !u!64 &2008586340
 MeshCollider:
   m_ObjectHideFlags: 0
