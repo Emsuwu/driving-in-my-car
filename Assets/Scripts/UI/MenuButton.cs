@@ -95,13 +95,13 @@ public class MenuButton : MonoBehaviour
         Deselect();
     }
     public void Select() {
+        GetComponent<Button>().Select();
         _isSelected = true;
         text.text = buttonTextSelected;
         AudioManager.PlayOneShot(AudioEvents.Current.ButtonHoverSound, PlayerMovement.Instance.transform);
     }
     public void Deselect()
     {
-        
         _isSelected = false;
         text.text = buttonTextUnselected;
     }

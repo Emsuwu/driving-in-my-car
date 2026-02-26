@@ -2202,9 +2202,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuFloatSlider
   text: {fileID: 857884260}
-  _initialSelection: 1
+  _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 1
   button: {fileID: 0}
   _clampMin: 0
@@ -3185,6 +3186,7 @@ MonoBehaviour:
   _initialSelection: 1
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &151063030
@@ -3536,6 +3538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _backButton: {fileID: 0}
+  InitialSelection: {fileID: 0}
 --- !u!64 &160147822
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3762,6 +3765,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
   _prefKey: InvertY
@@ -4864,6 +4868,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &328469932
@@ -5168,6 +5173,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &342067197
@@ -5377,6 +5383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menu
   _backButton: {fileID: 328469932}
+  InitialSelection: {fileID: 0}
 --- !u!1 &389850121
 GameObject:
   m_ObjectHideFlags: 0
@@ -5605,6 +5612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menu
   _backButton: {fileID: 469351443}
+  InitialSelection: {fileID: 0}
 --- !u!1 &411372919
 GameObject:
   m_ObjectHideFlags: 0
@@ -5662,6 +5670,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &411372922
@@ -6049,6 +6058,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &469351443
@@ -6460,9 +6470,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   text: {fileID: 220779388}
-  _initialSelection: 1
+  _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
   _prefKey: SmokeEnabled
@@ -6620,6 +6631,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &530532354
@@ -6936,6 +6948,7 @@ MonoBehaviour:
   _initialSelection: 1
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
   _prefKey: CRTShader
@@ -7101,6 +7114,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &575075358
@@ -7703,6 +7717,7 @@ MonoBehaviour:
   _initialSelection: 1
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 1
   button: {fileID: 0}
   _clampMin: 0.005
@@ -7769,6 +7784,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &683046127
@@ -8577,6 +8593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menu
   _backButton: {fileID: 1963827265}
+  InitialSelection: {fileID: 0}
 --- !u!1 &846031661
 GameObject:
   m_ObjectHideFlags: 0
@@ -9260,6 +9277,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &927451016
@@ -9640,6 +9658,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &983400034
@@ -10059,6 +10078,7 @@ MonoBehaviour:
   _initialSelection: 1
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!64 &1030832461
@@ -10326,6 +10346,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &1076287388
@@ -10796,6 +10817,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &1179706477
@@ -14166,9 +14188,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuFloatSlider
   text: {fileID: 1194377639}
-  _initialSelection: 1
+  _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 1
   button: {fileID: 0}
   _clampMin: 0
@@ -14331,6 +14354,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &1378893299
@@ -17986,6 +18010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menu
   _backButton: {fileID: 151063030}
+  InitialSelection: {fileID: 0}
 --- !u!1 &1769199455
 GameObject:
   m_ObjectHideFlags: 0
@@ -18229,6 +18254,7 @@ MonoBehaviour:
   _initialSelection: 1
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &1782700225
@@ -18552,6 +18578,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
   _prefKey: InvertX
@@ -21447,6 +21474,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &1909607221
@@ -21615,9 +21643,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuFloatSlider
   text: {fileID: 1706972049}
-  _initialSelection: 1
+  _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 1
   button: {fileID: 0}
   _clampMin: 0
@@ -21766,6 +21795,7 @@ MonoBehaviour:
   _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 0
   button: {fileID: 0}
 --- !u!114 &1963827265
@@ -22368,6 +22398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menu
   _backButton: {fileID: 996186637}
+  InitialSelection: {fileID: 0}
 --- !u!64 &2008586340
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23002,6 +23033,7 @@ MonoBehaviour:
   _initialSelection: 1
   buttonTextUnselected: 
   buttonTextSelected: 
+  RootMenu: {fileID: 0}
   _cursorType: 1
   button: {fileID: 0}
   _clampMin: 0
