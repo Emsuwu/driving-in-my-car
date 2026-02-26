@@ -18746,7 +18746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuButton
   text: {fileID: 421653288}
-  _initialSelection: 1
+  _initialSelection: 0
   buttonTextUnselected: 
   buttonTextSelected: 
   RootMenu: {fileID: 0}
