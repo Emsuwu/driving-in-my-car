@@ -1,6 +1,7 @@
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -53,8 +54,6 @@ public class PlayerMovement : MonoBehaviour
         //    Time.fixedDeltaTime = 1f / RefreshRate;
         //}
 
-        
-
         gameObject.AddComponent<ConstantForce>().force = new Vector3(0.0f, -20f, 0.0f);
 
         // Set camera sensitivity
@@ -62,7 +61,13 @@ public class PlayerMovement : MonoBehaviour
     }
     public void UpdateSettings()
     {
+        Debug.Log(PlayerPrefs.GetString("Rebinds"));
 
+        var rebinds = PlayerPrefs.GetString("Rebinds");
+        if (!string.IsNullOrEmpty(rebinds))
+        {
+            _inputActions.LoadBindingOverridesFromJson(rebinds);
+        }
 
         const string SENS = "CameraSensitivity";
         if (!PlayerPrefs.HasKey(SENS))
@@ -89,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         _inputActions.FindActionMap("Player").Enable();
+
+        
     }
     private void OnDisable()
     {

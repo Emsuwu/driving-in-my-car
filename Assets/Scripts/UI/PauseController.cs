@@ -57,11 +57,14 @@ public class PauseController : MonoBehaviour
         yield return new WaitForEndOfFrame();
         {
             CurrentMenu.InitialSelection.Select();
+            
         }
     }
 
     void Update()
     {
+        //Debug.Log($"T: {IsOnTitleScreen}, ||: {IsPaused}");
+
         if (_pauseAction.WasPressedThisFrame()) { Esc(); }
         NavigateAxis = _navigate.ReadValue<Vector2>();
 

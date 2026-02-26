@@ -6,7 +6,7 @@ public class MenuToggleButton : MenuButton
     [SerializeField] private string _prefKey;
     private bool _isOn;
     [SerializeField] private bool _defaultValue;
-
+     
     private void Update()
     {
         string box = _isOn ? " [On]" : " [Off]";
