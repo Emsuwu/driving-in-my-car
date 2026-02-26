@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private InputActionAsset _inputActions;
+    
     [HideInInspector] public static PlayerMovement Instance;
     [SerializeField] private Camera _camera;
     private Rigidbody _rb;
@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public bool InvertX;
     public bool InvertY;
 
+    [SerializeField] private InputActionAsset _inputActions;
     private InputAction _interactAction;
     private InputAction _moveAction;
     private Vector2 _moveAxis;

@@ -3,28 +3,28 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class MenuKeybindButton : MenuButton
 {
     [Header("Rebind")]
     [SerializeField] private InputActionAsset _inputActions;
-    [SerializeField] private InputActionReference _rebindAction;
+    [SerializeField] private InputActionReference _rebindTargetAction;
     private InputActionRebindingExtensions.RebindingOperation _rebindingOperation;
     [SerializeField] private string _targetMapName = "Player";
+    [SerializeField] private bool _isControllerRebind;
 
-    [Header("CompositeSettings")]
+    [Header("Composite Settings")]
     [SerializeField] private bool _isComposite;
     [SerializeField, ShowIf("_isComposite")] private string _compositeName;
     private InputAction _action;
 
-    
 
     string _boundKeyName = "?";
 
     public void UpdateBoundKeyName()
     {
-        _action = _rebindAction.action;
+        _action = _rebindTargetAction.action;
 
         int bindingIndex = 0;
         if (_isComposite)
@@ -32,11 +32,18 @@ public class MenuKeybindButton : MenuButton
             bindingIndex = _action.bindings.IndexOf(x => x.name == _compositeName);
         }
 
-        string _boundKeyName = _action.bindings[bindingIndex].effectivePath;
+        string rawPath = _action.bindings[bindingIndex].effectivePath;
+
+        _boundKeyName = InputControlPath.ToHumanReadableString(
+            rawPath,
+            InputControlPath.HumanReadableStringOptions.OmitDevice);
     }
 
     public void Rebind()
     {
+        string expectedControlType = _isControllerRebind ? "Gamepad" : "Key";
+        string excludedControlType = _isControllerRebind ? "Key" : "Gamepad";
+
         _boundKeyName = "...";
 
         int bindingIndex = 0;
@@ -46,12 +53,20 @@ public class MenuKeybindButton : MenuButton
         }
         _inputActions.FindActionMap(_targetMapName).Disable();
 
-        _rebindingOperation = _action.PerformInteractiveRebinding().OnComplete(operation => CompleteRebind());
+        _rebindingOperation = _action.PerformInteractiveRebinding(bindingIndex)
+            .WithTargetBinding(bindingIndex)
+            .WithControlsExcluding("Mouse")
+            .WithControlsExcluding(excludedControlType)
+            .WithExpectedControlType(expectedControlType)
+            .OnComplete(operation => CompleteRebind())
+            .OnCancel(operation => CompleteRebind());
         _rebindingOperation.Start();
     }
 
     public void CompleteRebind()
     {
+        Debug.Log("Rebind complete!");
+
         _rebindingOperation.Dispose();
         _inputActions.FindActionMap(_targetMapName).Enable();
         _boundKeyName = _action.bindings[0].effectivePath;
@@ -59,6 +74,7 @@ public class MenuKeybindButton : MenuButton
         Debug.Log(rebinds);
         PlayerPrefs.SetString("Rebinds", rebinds);
 
+        UpdateBoundKeyName();
         UpdateSettings();
     }
 
