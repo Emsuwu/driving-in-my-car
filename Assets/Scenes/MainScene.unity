@@ -2416,7 +2416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df97785d50e16ec43a3dfe3452012038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchPauseMenu
-  _activateMenu: {fileID: 369392176}
+  _activateMenu: {fileID: 1216167527}
   _deactivateMenu: {fileID: 1878078193}
 --- !u!114 &66597945
 MonoBehaviour:
@@ -4390,6 +4390,9 @@ MonoBehaviour:
   _isControllerRebind: 0
   _isComposite: 1
   _compositeName: left
+  _rebindingTextColor:
+    serializedVersion: 2
+    rgba: 4294948448
 --- !u!114 &219316427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6069,6 +6072,9 @@ MonoBehaviour:
   _isControllerRebind: 0
   _isComposite: 1
   _compositeName: right
+  _rebindingTextColor:
+    serializedVersion: 2
+    rgba: 4294948448
 --- !u!114 &386342342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7529,6 +7535,9 @@ MonoBehaviour:
   _isControllerRebind: 0
   _isComposite: 1
   _compositeName: down
+  _rebindingTextColor:
+    serializedVersion: 2
+    rgba: 4294948448
 --- !u!114 &529461764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13386,7 +13395,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Confirm changes
+  m_text: Back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 74f4bbe1ec1253242a157b08501ba396, type: 2}
   m_sharedMaterial: {fileID: -5513069640675734507, guid: 74f4bbe1ec1253242a157b08501ba396, type: 2}
@@ -13396,7 +13405,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278242176
-  m_fontColor: {r: 0.5035266, g: 0.79622644, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -18697,7 +18706,6 @@ GameObject:
   - component: {fileID: 1453387326}
   - component: {fileID: 1453387325}
   - component: {fileID: 1453387324}
-  - component: {fileID: 1453387323}
   m_Layer: 5
   m_Name: Gamepad
   m_TagString: Untagged
@@ -18725,20 +18733,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.9260988, y: 87.883}
   m_SizeDelta: {x: 776.2165, y: 82.7082}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1453387323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453387321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df97785d50e16ec43a3dfe3452012038, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwitchPauseMenu
-  _activateMenu: {fileID: 1878078193}
-  _deactivateMenu: {fileID: 1216167527}
 --- !u!114 &1453387324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18801,19 +18795,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1453387326}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1453387323}
-        m_TargetAssemblyTypeName: SwitchPauseMenu, Assembly-CSharp
-        m_MethodName: OnTrigger
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1453387326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25735,6 +25717,9 @@ MonoBehaviour:
   _isControllerRebind: 0
   _isComposite: 1
   _compositeName: up
+  _rebindingTextColor:
+    serializedVersion: 2
+    rgba: 4294948447
 --- !u!64 &2008586340
 MeshCollider:
   m_ObjectHideFlags: 0

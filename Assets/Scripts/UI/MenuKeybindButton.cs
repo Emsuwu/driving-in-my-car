@@ -19,6 +19,8 @@ public class MenuKeybindButton : MenuButton
     [SerializeField, ShowIf("_isComposite")] private string _compositeName;
     private InputAction _action;
 
+    private Color32 _defaultTextColor;
+    [SerializeField] private Color32 _rebindingTextColor;
 
     string _boundKeyName = "?";
 
@@ -41,6 +43,8 @@ public class MenuKeybindButton : MenuButton
 
     public void Rebind()
     {
+        text.color = _rebindingTextColor;
+
         string expectedControlType = _isControllerRebind ? "Gamepad" : "Key";
         string excludedControlType = _isControllerRebind ? "Key" : "Gamepad";
 
@@ -65,6 +69,7 @@ public class MenuKeybindButton : MenuButton
 
     public void CompleteRebind()
     {
+        text.color = _defaultTextColor;
         Debug.Log("Rebind complete!");
 
         _rebindingOperation.Dispose();
@@ -81,6 +86,9 @@ public class MenuKeybindButton : MenuButton
     private new void OnEnable()
     {
         base.OnEnable();
+
+        _defaultTextColor = text.color;
+        text.color = _defaultTextColor;
 
         EventTrigger eventTrigger = gameObject.AddComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
