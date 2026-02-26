@@ -14,6 +14,8 @@ public class MenuButton : MonoBehaviour
     [HideInInspector] public string buttonTextUnselected;
     [HideInInspector] public string buttonTextSelected;
 
+    public Menu RootMenu;
+
     [Header("Set cursor type on hover?")]
     [SerializeField] private MouseType.CURSOR _cursorType;
 
@@ -33,6 +35,13 @@ public class MenuButton : MonoBehaviour
         button = GetComponent<Button>();
 
         AddTriggers();
+    }
+
+    private void Start()
+    {
+        if (_initialSelection) {
+            RootMenu.InitialSelection = this;
+        }
     }
 
     public void OnEnable()
@@ -92,6 +101,7 @@ public class MenuButton : MonoBehaviour
     }
     public void Deselect()
     {
+        
         _isSelected = false;
         text.text = buttonTextUnselected;
     }

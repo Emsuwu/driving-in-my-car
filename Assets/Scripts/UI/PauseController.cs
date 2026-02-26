@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -50,10 +51,28 @@ public class PauseController : MonoBehaviour
     {
         _inputActions.FindActionMap("UI").Disable();
     }
+
+    IEnumerator SelectInitial()
+    {
+        yield return new WaitForEndOfFrame();
+        {
+            CurrentMenu.InitialSelection.Select();
+        }
+    }
+
     void Update()
     {
         if (_pauseAction.WasPressedThisFrame()) { Esc(); }
         NavigateAxis = _navigate.ReadValue<Vector2>();
+
+        if (_navigate.WasPressedThisFrame())
+        {
+            if (EventSystem.current.currentSelectedGameObject == null)
+            {
+                StartCoroutine(SelectInitial());
+            }
+
+        }
         
         if (Keyboard.current.digit0Key.wasPressedThisFrame)
         {

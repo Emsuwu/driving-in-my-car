@@ -5,6 +5,10 @@ public class Menu : MonoBehaviour
 {
     public static Menu Instance { get; private set; }
     [SerializeField] private Button _backButton;
+    public MenuButton InitialSelection;
+    private MenuButton[] _allMenuButtons;
+
+
     public Button BackButton
     {
         get { return _backButton; }
@@ -19,6 +23,12 @@ public class Menu : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        
+        _allMenuButtons = GetComponentsInChildren<MenuButton>();
+        foreach (MenuButton button in _allMenuButtons)
+        {
+            button.RootMenu = this;
+        }
     }
 
     public void TriggerBack()
