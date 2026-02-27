@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool Disabled = false;
+
     [Header("References")]
     
     [HideInInspector] public static PlayerMovement Instance;
@@ -95,8 +97,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         _inputActions.FindActionMap("Player").Enable();
-
-        
     }
     private void OnDisable()
     {
@@ -104,6 +104,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        if (Disabled) { return; }
+
         if (_interactAction.WasPressedThisFrame()) { _playerInteractScript.Interact(); }
 
         if (Keyboard.current.digit8Key.wasPressedThisFrame)
@@ -120,10 +122,12 @@ public class PlayerMovement : MonoBehaviour
     }
     private void LateUpdate()
     {
+        if (Disabled) { return; }
         Rotation();
     }
     private void FixedUpdate()
     {
+        if (Disabled) { return; }
         Movement();
     }
     private void Movement()
