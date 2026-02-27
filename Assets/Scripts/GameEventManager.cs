@@ -21,11 +21,30 @@ public class GameEventManager : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+
+        if (PlayerPrefs.HasKey("HalfLoopsCompleted"))
+        {
+            HalfLoopsCompleted = PlayerPrefs.GetInt("HalfLoopsCompleted");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("HalfLoopsCompleted", 0);
+        }
+        
+    }
+
+    public void ResetSave()
+    {
+        PlayerPrefs.SetInt("HalfLoopsCompleted", 0);
+        HalfLoopsCompleted = 0;
+        _loopCounter.GetComponent<TMPro.TMP_Text>().text = $"Half-loops: {HalfLoopsCompleted}";
     }
 
     private void Start()
     {
         _loopCounter = GameObject.Find("LoopCounter");
+
+        _loopCounter.GetComponent<TMPro.TMP_Text>().text = $"Half-loops: {HalfLoopsCompleted}";
     }
 
     public void IncrementFirstHalf()
@@ -34,6 +53,8 @@ public class GameEventManager : MonoBehaviour
         {
             HalfLoopsCompleted++;
             _loopCounter.GetComponent<TMPro.TMP_Text>().text = $"Half-loops: {HalfLoopsCompleted}";
+            PlayerPrefs.SetInt("HalfLoopsCompleted", HalfLoopsCompleted);
+            SaveNotification.Instance.Show();
         }
         else
         {

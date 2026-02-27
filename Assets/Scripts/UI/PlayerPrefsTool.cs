@@ -7,4 +7,10 @@ public class PlayerPrefsTool : MonoBehaviour
     {
         PlayerPrefs.DeleteKey("HasAcceptedWarning");
     }
+
+    [Button("Reset HalfLoopsCompleted")]
+    private void ResetHalfLoopsCompleted()
+    {
+        PlayerPrefs.DeleteKey("HalfLoopsCompleted");
+    }
 }
