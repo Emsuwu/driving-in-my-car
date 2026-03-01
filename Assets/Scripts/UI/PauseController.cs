@@ -36,6 +36,9 @@ public class PauseController : MonoBehaviour
     }
     private void Start()
     {
+        CutsceneController cc;
+        TryGetComponent<CutsceneController>(out cc);
+        if (cc != null) return;
         StartCoroutine(WaitFrameThenPause());
     }
 

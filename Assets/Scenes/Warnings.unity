@@ -249,6 +249,13 @@ MonoBehaviour:
       Data3: -706069859
       Data4: 1070629788
     Path: event:/CrowCaw
+  KidScare:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   AmbienceSound:
     Guid:
       Data1: -1099664005
@@ -486,6 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4545459646c0943a70563f4b67c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseController
+  AllowPausing: 1
   _menu: {fileID: 2051425278}
   _inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _debugPrint: {fileID: 0}
@@ -551,12 +559,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This game contains jumpscares and other horror elements and hints towards
-    subjects that some players may find triggering, including suicide.
+  m_text: 'This game contains loud noises, jumpscares and flashing strobe light effects!
 
 
-    If the
-    game runs poorly, try turning of smoke in video settings!'
+    If
+    the game runs poorly, try turning of smoke in video settings!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 74f4bbe1ec1253242a157b08501ba396, type: 2}
   m_sharedMaterial: {fileID: -5513069640675734507, guid: 74f4bbe1ec1253242a157b08501ba396, type: 2}

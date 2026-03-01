@@ -15,11 +15,20 @@ public class KidAnimation : MonoBehaviour
 
     private Dictionary<string, Vector3> _animOffsets = new();
 
+    [SerializeField] private string _startingAnim;
+
     private void Awake()
     {
         _animOffsets.Add("T-Pose", Vector3.zero);
         _animOffsets.Add("Breakdance", new Vector3(0f, -0.77f, 0f));
         _animOffsets.Add("StandardRun", new Vector3(0f, -0.77f, 0f));
+        _animOffsets.Add("Peak", new Vector3(0f, -0.77f, 0f));
+    }
+
+    private void OnEnable()
+    {
+        if (!string.IsNullOrEmpty(_startingAnim)) PlayAnim(_startingAnim);
+        
     }
 
     public void PlayAnim(string animationName)
