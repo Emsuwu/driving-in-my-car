@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class PauseController : MonoBehaviour
 {
+    public bool AllowPausing = true;
+
     private bool _isPaused = false;
     public static PauseController Instance;
     public bool IsPaused { get { return _isPaused; } }
@@ -100,9 +102,8 @@ public class PauseController : MonoBehaviour
 
     private void Esc()
     {
-        // if (IsOnTitleScreen) return;
-
-        if (!_isPaused) { 
+        if (!_isPaused) {
+            if (!AllowPausing) { return; }
             _isPaused = true;
             _menu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;

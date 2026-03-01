@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +9,9 @@ public class KidAnimation : MonoBehaviour
     [SerializeField] private GameObject _kidGObj;
     [SerializeField] private GameObject _kidOrigin;
     [SerializeField] private Animator _kidAnimator;
+    [SerializeField] private EventReference _runSound;
+    private EventInstance _runSoundInstance;
+    public EventInstance RunSoundInstance { get { return _runSoundInstance; } }
 
     private Dictionary<string, Vector3> _animOffsets = new();
 
@@ -14,17 +19,7 @@ public class KidAnimation : MonoBehaviour
     {
         _animOffsets.Add("T-Pose", Vector3.zero);
         _animOffsets.Add("Breakdance", new Vector3(0f, -0.77f, 0f));
-    }
-
-    private void Start()
-    {
-        StartCoroutine(BreakDanceInABit());
-    }
-
-    IEnumerator BreakDanceInABit()
-    {
-        yield return new WaitForSeconds(10);
-        PlayAnim("Breakdance");
+        _animOffsets.Add("StandardRun", new Vector3(0f, -0.77f, 0f));
     }
 
     public void PlayAnim(string animationName)
@@ -36,4 +31,10 @@ public class KidAnimation : MonoBehaviour
 
     public void TPose() { PlayAnim("T-Pose"); }
     public void Breakdance() { PlayAnim("Breakdance"); }
+    public void StandardRun() 
+    { 
+        PlayAnim("StandardRun");
+        _runSoundInstance = AudioManager.CreateAndStartInstance(_runSound, transform);
+        AudioManager.AttachInstanceToGameObject(_runSoundInstance, gameObject);
+    }
 }

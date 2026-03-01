@@ -54,6 +54,57 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-305114467296736966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/KidScare
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/KidScare
+  Guid:
+    Data1: 113753889
+    Data2: 1225087979
+    Data3: -1798005837
+    Data4: 880930844
+  Banks:
+  - {fileID: 554973624066365236}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-186656562378276299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/KidRun/FootstepType
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: FootstepType
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 1
+  ID:
+    data1: 1914679710
+    data2: 3559805058
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-145946099401148243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,13 +153,15 @@ MonoBehaviour:
   - {fileID: -569780893484778943}
   - {fileID: 1190487269895337882}
   - {fileID: 7373076629558184616}
+  - {fileID: 1752610001417451771}
+  - {fileID: -305114467296736966}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5199159010263730310}
   StringsBanks:
   - {fileID: 8912001126375132464}
   cacheVersion: 131858
-  cacheTime: 639072050962427034
+  cacheTime: 639079658229331087
   SerializableEventsDict:
   - key: event:/Ambience
     index: 0
@@ -120,6 +173,10 @@ MonoBehaviour:
     index: 3
   - key: event:/Engine
     index: 4
+  - key: event:/KidRun
+    index: 5
+  - key: event:/KidScare
+    index: 6
 --- !u!114 &554973624066365236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,10 +192,10 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Sound Effects.bank
   Name: Sound Effects
   StudioPath: bank:/Sound Effects
-  lastModified: 639072050962427034
+  lastModified: 639079658229331087
   FileSizes:
   - Name: Desktop
-    Value: 405344
+    Value: 523840
   Exists: 1
 --- !u!114 &1190487269895337882
 MonoBehaviour:
@@ -167,6 +224,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1752610001417451771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/KidRun
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/KidRun
+  Guid:
+    Data1: -1327354421
+    Data2: 1119675381
+    Data3: 1133794201
+    Data4: -1500701755
+  Banks:
+  - {fileID: 554973624066365236}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -186656562378276299}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 936
 --- !u!114 &2779666125649218015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +315,7 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639072049502200374
+  lastModified: 639079658226821966
   FileSizes:
   - Name: Desktop
     Value: 1524
@@ -297,8 +382,8 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639072049502200374
+  lastModified: 639079658226832057
   FileSizes:
   - Name: Desktop
-    Value: 1252
+    Value: 1338
   Exists: 1

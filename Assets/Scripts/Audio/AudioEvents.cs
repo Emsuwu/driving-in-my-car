@@ -9,6 +9,7 @@ public class AudioEvents : MonoBehaviour
     private void Awake() { Current = this; }
 
     public EventReference CrowCawSound;
+    public EventReference KidScare;
     public EventReference AmbienceSound;
     private EventInstance _ambienceInstance;
     public EventReference ButtonHoverSound;
@@ -18,5 +19,18 @@ public class AudioEvents : MonoBehaviour
         //AudioManager.PlayOneShot(AmbienceSound, PlayerMovement.Instance.transform);
         _ambienceInstance = AudioManager.CreateAndStartInstance(AmbienceSound, PlayerMovement.Instance.transform);
         AudioManager.AttachInstanceToGameObject(_ambienceInstance, PlayerMovement.Instance.gameObject);
+    }
+
+    public void StopAmbience()
+    {
+        AudioManager.StopInstance(_ambienceInstance, FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+    public void FadeAmbience()
+    {
+        AudioManager.StopInstance(_ambienceInstance, FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+    public void StartAmbience()
+    {
+        AudioManager.StartInstance(_ambienceInstance);
     }
 }
