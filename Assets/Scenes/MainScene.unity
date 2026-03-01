@@ -7566,6 +7566,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975e699c0b23c7946b8134472950b5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  _laugh:
+    Guid:
+      Data1: 1597320427
+      Data2: 1160413703
+      Data3: 1813303979
+      Data4: 184382262
+    Path: event:/KidLaugh
 --- !u!1 &398173989
 GameObject:
   m_ObjectHideFlags: 0
