@@ -97,6 +97,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         _inputActions.FindActionMap("Player").Enable();
+
+        GetComponent<MeshRenderer>().enabled = false;
     }
     private void OnDisable()
     {
