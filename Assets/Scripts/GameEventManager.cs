@@ -7,6 +7,13 @@ public class GameEventManager : MonoBehaviour
     [SerializeField] private GameObject _unopenHouse;
     [SerializeField] private GameObject _openHouse;
 
+    [SerializeField] private GameObject _holeQuadrant;
+    [SerializeField] private GameObject _quadrant4;
+    [SerializeField] private GameObject _alwaysGreener1;
+    [SerializeField] private GameObject _streetlamp24;
+
+    private bool _hideQuadrant4Forevermore;
+
     private GameObject _loopCounter;
 
     public static GameEventManager Instance;
@@ -84,6 +91,20 @@ public class GameEventManager : MonoBehaviour
         }
         _openHouse.SetActive(true);
         _unopenHouse.SetActive(false);
+    }
+
+    public void HoleEvent(bool on = true)
+    {
+        _quadrant4.SetActive(!on);
+        _streetlamp24.SetActive(!on);
+        _alwaysGreener1.SetActive(!on);
+        _holeQuadrant.SetActive(on);
+        _hideQuadrant4Forevermore = on;
+    }
+
+    private void Update()
+    {
+        if (_hideQuadrant4Forevermore) _quadrant4.SetActive(false);
     }
 
 }
