@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -107,4 +108,33 @@ public class GameEventManager : MonoBehaviour
         if (_hideQuadrant4Forevermore) _quadrant4.SetActive(false);
     }
 
+
+    public void EnablePlayerDamping(bool on = true)
+    {
+        Rigidbody _rb = PlayerMovement.Instance.GetComponent<Rigidbody>();
+        if (on)
+        {
+            _rb.linearDamping = 10f;
+            _rb.angularDamping = 0.05f;
+        }
+        else
+        {
+            _rb.linearDamping = 0f;
+            _rb.angularDamping = 0f;
+        }
+    }
+
+    public void TransitionToEnding()
+    {
+        StartCoroutine(TransitionToEndingRoutine());
+    }
+
+    IEnumerator TransitionToEndingRoutine()
+    {
+        float DURATION = 2.5f;
+        ViewRenderTexture.Instance.FadeOut(DURATION);
+        AudioEvents.Current.FadeAmbience();
+        yield return new WaitForSeconds(DURATION + .5f);
+        SceneManager.LoadScene(2);
+    }
 }

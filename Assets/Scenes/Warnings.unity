@@ -270,6 +270,7 @@ MonoBehaviour:
       Data3: 1750901419
       Data4: 1906701826
     Path: event:/ButtonHover
+  isAmbienceEnabled: 1
 --- !u!114 &244763851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,7 +564,7 @@ MonoBehaviour:
 
 
     If
-    the game runs poorly, try turning of smoke in video settings!'
+    the game runs poorly, try turning off smoke in video settings!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 74f4bbe1ec1253242a157b08501ba396, type: 2}
   m_sharedMaterial: {fileID: -5513069640675734507, guid: 74f4bbe1ec1253242a157b08501ba396, type: 2}

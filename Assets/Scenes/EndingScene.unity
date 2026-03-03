@@ -2678,6 +2678,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _unopenHouse: {fileID: 0}
   _openHouse: {fileID: 0}
+  _holeQuadrant: {fileID: 0}
+  _quadrant4: {fileID: 0}
+  _alwaysGreener1: {fileID: 0}
+  _streetlamp24: {fileID: 0}
   HalfLoopsCompleted: 0
 --- !u!114 &244331576
 MonoBehaviour:
@@ -2767,6 +2771,7 @@ MonoBehaviour:
       Data3: 1750901419
       Data4: 1906701826
     Path: event:/ButtonHover
+  isAmbienceEnabled: 0
 --- !u!114 &244763851
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,9 +14,13 @@ public class AudioEvents : MonoBehaviour
     private EventInstance _ambienceInstance;
     public EventReference ButtonHoverSound;
 
+    [SerializeField] private bool isAmbienceEnabled = true;
+
     private void Start()
     {
         //AudioManager.PlayOneShot(AmbienceSound, PlayerMovement.Instance.transform);
+
+        if (!isAmbienceEnabled) return;
         _ambienceInstance = AudioManager.CreateAndStartInstance(AmbienceSound, PlayerMovement.Instance.transform);
         AudioManager.AttachInstanceToGameObject(_ambienceInstance, PlayerMovement.Instance.gameObject);
     }

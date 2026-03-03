@@ -5931,6 +5931,7 @@ MonoBehaviour:
       Data3: 1750901419
       Data4: 1906701826
     Path: event:/ButtonHover
+  isAmbienceEnabled: 1
 --- !u!114 &244763851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7222,7 +7223,16 @@ PrefabInstance:
     - {fileID: 8948458998355892771, guid: 833efed4bb27fc24a871b8b3b9dcf140, type: 3}
     - {fileID: -2883251185321537525, guid: 833efed4bb27fc24a871b8b3b9dcf140, type: 3}
     - {fileID: -8837520272779175530, guid: 833efed4bb27fc24a871b8b3b9dcf140, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 833efed4bb27fc24a871b8b3b9dcf140, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 871911404}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 833efed4bb27fc24a871b8b3b9dcf140, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 751425140}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 833efed4bb27fc24a871b8b3b9dcf140, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1305134970}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2579947274486085750, guid: 833efed4bb27fc24a871b8b3b9dcf140, type: 3}
       insertIndex: -1
@@ -11722,6 +11732,91 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8723042934994950563, guid: 63f49edd744a2d34c9f1852f50201268, type: 3}
+--- !u!1 &751425139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 751425140}
+  - component: {fileID: 751425141}
+  - component: {fileID: 751425142}
+  m_Layer: 9
+  m_Name: 5 | Increase Player Grav
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &751425140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751425139}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.14872612, z: -0, w: 0.9888785}
+  m_LocalPosition: {x: -110.07, y: 0, z: 59.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 350465326}
+  m_LocalEulerAnglesHint: {x: 0, y: 17.106, z: 0}
+--- !u!65 &751425141
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751425139}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 10.576817, z: 32.496567}
+  m_Center: {x: 0.000027088774, y: 4.7884083, z: -15.748287}
+--- !u!114 &751425142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751425139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ca4179903afe946955982f5a27b3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Trigger
+  Calls:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 244331575}
+        m_TargetAssemblyTypeName: GameEventManager, Assembly-CSharp
+        m_MethodName: EnablePlayerDamping
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DescriptiveText: Increases player gravity
+  RequiresSpecificCount: 1
+  _operator: 2
+  RequiredHalfLoopCount: 5
 --- !u!4 &778726467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7483034982533810518, guid: 8d200643c3875ca4f8bf1de3491dbb02, type: 3}
@@ -12836,6 +12931,91 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7483034982533810518, guid: 8d200643c3875ca4f8bf1de3491dbb02, type: 3}
   m_PrefabInstance: {fileID: 1836021025}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &871911403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 871911404}
+  - component: {fileID: 871911406}
+  - component: {fileID: 871911405}
+  m_Layer: 9
+  m_Name: 5 | TransitionEnding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &871911404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871911403}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.14872612, z: -0, w: 0.9888785}
+  m_LocalPosition: {x: -92.3, y: -5, z: 54.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 350465326}
+  m_LocalEulerAnglesHint: {x: 0, y: 17.106, z: 0}
+--- !u!114 &871911405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871911403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ca4179903afe946955982f5a27b3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Trigger
+  Calls:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 244331575}
+        m_TargetAssemblyTypeName: GameEventManager, Assembly-CSharp
+        m_MethodName: TransitionToEnding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DescriptiveText: Fades the screen to black and switches to ending scene
+  RequiresSpecificCount: 1
+  _operator: 2
+  RequiredHalfLoopCount: 5
+--- !u!65 &871911406
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871911403}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 46.096622, y: 1.285435, z: 54.756775}
+  m_Center: {x: -0.31769356, y: 0.14271724, z: -14.196937}
 --- !u!1 &881231892
 GameObject:
   m_ObjectHideFlags: 0
@@ -12996,7 +13176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _versionText: {fileID: 1644555546}
   Scheme: 1
-  Version: 3.1.0-dev
+  Version: 3.3.0-dev
   MinorVersion: 0
   MajorVersion: 0
   IncludePatchAfterMinor: 0
@@ -13057,6 +13237,7 @@ GameObject:
   - component: {fileID: 919324020}
   - component: {fileID: 919324022}
   - component: {fileID: 919324021}
+  - component: {fileID: 919324023}
   m_Layer: 5
   m_Name: Render
   m_TagString: Untagged
@@ -13120,6 +13301,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919324019}
   m_CullTransparentMesh: 1
+--- !u!114 &919324023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919324019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891c885c7c244f2419c1e52a30ddca30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &924216049
 GameObject:
   m_ObjectHideFlags: 0
@@ -17532,6 +17725,91 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281854165}
   m_CullTransparentMesh: 1
+--- !u!1 &1305134969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1305134970}
+  - component: {fileID: 1305134972}
+  - component: {fileID: 1305134971}
+  m_Layer: 9
+  m_Name: 5 | Decrease Player Grav
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1305134970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305134969}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.14872612, z: -0, w: 0.9888785}
+  m_LocalPosition: {x: -117.55, y: 0, z: 63.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 350465326}
+  m_LocalEulerAnglesHint: {x: 0, y: 17.106, z: 0}
+--- !u!114 &1305134971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305134969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ca4179903afe946955982f5a27b3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Trigger
+  Calls:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 244331575}
+        m_TargetAssemblyTypeName: GameEventManager, Assembly-CSharp
+        m_MethodName: EnablePlayerDamping
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  DescriptiveText: Increases player gravity
+  RequiresSpecificCount: 1
+  _operator: 2
+  RequiredHalfLoopCount: 5
+--- !u!65 &1305134972
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305134969}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 10.576817, z: 32.496567}
+  m_Center: {x: 0.000027088774, y: 4.7884083, z: -15.748287}
 --- !u!1 &1312439237
 GameObject:
   m_ObjectHideFlags: 0
@@ -24214,7 +24492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3.1.0-dev
+  m_text: 3.3.0-dev
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
