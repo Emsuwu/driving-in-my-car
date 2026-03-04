@@ -51,8 +51,7 @@ public class GameEventManager : MonoBehaviour
     private void Start()
     {
         _loopCounter = GameObject.Find("LoopCounter");
-
-        _loopCounter.GetComponent<TMPro.TMP_Text>().text = $"Half-loops: {HalfLoopsCompleted}";
+        if (_loopCounter != null) _loopCounter.GetComponent<TMPro.TMP_Text>().text = $"Half-loops: {HalfLoopsCompleted}";
     }
 
     public void IncrementFirstHalf()

@@ -225,6 +225,10 @@ PrefabInstance:
       propertyPath: m_BounceIntensity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1526509560930016547, guid: e5455188ee00e854dba2b6dfe7d7c962, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 461ab0d8d2a9d5b4aa1757a59e4e890f, type: 2}
     - target: {fileID: -1367033165847600107, guid: e5455188ee00e854dba2b6dfe7d7c962, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
