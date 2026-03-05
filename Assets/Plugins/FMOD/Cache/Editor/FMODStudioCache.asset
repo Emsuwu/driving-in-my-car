@@ -184,13 +184,14 @@ MonoBehaviour:
   - {fileID: -305114467296736966}
   - {fileID: -4139002288423717897}
   - {fileID: 224636005277573094}
+  - {fileID: 5959105496516065886}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5199159010263730310}
   StringsBanks:
   - {fileID: 8912001126375132464}
   cacheVersion: 131858
-  cacheTime: 639079791895778716
+  cacheTime: 639083317939784030
   SerializableEventsDict:
   - key: event:/Ambience
     index: 0
@@ -210,6 +211,8 @@ MonoBehaviour:
     index: 7
   - key: event:/KidLaugh
     index: 8
+  - key: event:/TVNews
+    index: 9
 --- !u!114 &224636005277573094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,10 +255,10 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Sound Effects.bank
   Name: Sound Effects
   StudioPath: bank:/Sound Effects
-  lastModified: 639079791895778716
+  lastModified: 639083317939784030
   FileSizes:
   - Name: Desktop
-    Value: 1138624
+    Value: 3494208
   Exists: 1
 --- !u!114 &1190487269895337882
 MonoBehaviour:
@@ -375,11 +378,38 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639079788013731634
+  lastModified: 639082446927041084
   FileSizes:
   - Name: Desktop
     Value: 1524
   Exists: 1
+--- !u!114 &5959105496516065886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TVNews
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/TVNews
+  Guid:
+    Data1: -1067192544
+    Data2: 1185690327
+    Data3: -1843886941
+    Data4: -1038594517
+  Banks:
+  - {fileID: 554973624066365236}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 40968
 --- !u!114 &6626435746744235287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,8 +472,8 @@ MonoBehaviour:
   Path: ../driving-in-my-car-fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639079788013741688
+  lastModified: 639082446927051122
   FileSizes:
   - Name: Desktop
-    Value: 1416
+    Value: 1452
   Exists: 1
