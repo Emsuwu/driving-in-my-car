@@ -13,6 +13,8 @@ public class GameEventManager : MonoBehaviour
     [SerializeField] private GameObject _alwaysGreener1;
     [SerializeField] private GameObject _streetlamp24;
 
+    [SerializeField] private GameObject _playerSpawnGObj;
+
     private bool _hideQuadrant4Forevermore;
 
     private GameObject _loopCounter;
@@ -45,13 +47,35 @@ public class GameEventManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("HalfLoopsCompleted", 0);
         HalfLoopsCompleted = 0;
-        _loopCounter.GetComponent<TMPro.TMP_Text>().text = $"Half-loops: {HalfLoopsCompleted}";
+
+        PlayerPrefs.SetFloat("SavedPlayerX", -531.1302f);
+        PlayerPrefs.SetFloat("SavedPlayerY", -265.7306f);
+        PlayerPrefs.SetFloat("SavedPlayerZ", -103.92f);
     }
 
     private void Start()
     {
-        _loopCounter = GameObject.Find("LoopCounter");
-        if (_loopCounter != null) _loopCounter.GetComponent<TMPro.TMP_Text>().text = $"Half-loops: {HalfLoopsCompleted}";
+        // If no save data, reset save data to default
+        if (!PlayerPrefs.HasKey("HalfLoopsCompleted")) { ResetSave(); }
+    }
+
+    public void Load()
+    {
+        //Debug.Log("Loaded player pos");
+        //float x = PlayerPrefs.GetFloat("SavedPlayerX");
+        //float y = PlayerPrefs.GetFloat("SavedPlayerY");
+        //float z = PlayerPrefs.GetFloat("SavedPlayerZ");
+        //_playerSpawnGObj.transform.position.Set(x, y, z);
+    }
+
+    public void Save(bool showSaveIcon = true)
+    {
+        PlayerPrefs.SetInt("HalfLoopsCompleted", HalfLoopsCompleted);
+        PlayerPrefs.SetFloat("SavedPlayerX", PlayerMovement.Instance.transform.position.x);
+        PlayerPrefs.SetFloat("SavedPlayerY", PlayerMovement.Instance.transform.position.y);
+        PlayerPrefs.SetFloat("SavedPlayerZ", PlayerMovement.Instance.transform.position.z);
+
+        if (showSaveIcon) SaveNotification.Instance.Show();
     }
 
     public void IncrementFirstHalf()
@@ -60,12 +84,12 @@ public class GameEventManager : MonoBehaviour
         {
             HalfLoopsCompleted++;
             _loopCounter.GetComponent<TMPro.TMP_Text>().text = $"Half-loops: {HalfLoopsCompleted}";
-            PlayerPrefs.SetInt("HalfLoopsCompleted", HalfLoopsCompleted);
-            SaveNotification.Instance.Show();
+
+            Save();
         }
         else
         {
-            Debug.Log("Can't increment until other side");
+            Debug.Log("Can't increment or save until other side.");
         }
     }
     public void IncrementSecondHalf()

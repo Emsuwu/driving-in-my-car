@@ -9,5 +9,7 @@ public class ContinueButton : MonoBehaviour
         PauseController.Instance.PauseMenuTitle.SetActive(false);
         PauseController.Instance.Unpause();
         PauseController.Instance.SwitchMenuActivationTarget(PauseController.Instance.BackButtons, PauseController.Instance.PauseMenuPause);
+
+        GameEventManager.Instance.Load();
     }
 }

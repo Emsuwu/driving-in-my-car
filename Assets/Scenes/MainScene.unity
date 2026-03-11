@@ -5840,6 +5840,8 @@ MonoBehaviour:
   - {fileID: 151063028}
   PauseMenuPause: {fileID: 1992498088}
   PauseMenuTitle: {fileID: 159823854}
+  _loopCounterGobj: {fileID: 704762877}
+  _buildNumberGobj: {fileID: 1644555544}
 --- !u!114 &244331575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5858,6 +5860,7 @@ MonoBehaviour:
   _quadrant4: {fileID: 1222639431}
   _alwaysGreener1: {fileID: 1176152377}
   _streetlamp24: {fileID: 442902944}
+  _playerSpawnGObj: {fileID: 377725863}
   HalfLoopsCompleted: 0
 --- !u!114 &244331576
 MonoBehaviour:
@@ -7538,6 +7541,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 8.748964, z: 36.824738}
   m_Center: {x: 0, y: 3.8744812, z: -5.6742706}
+--- !u!1 &377725863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7710128336883439235, guid: 85f3b0b70e81fb04fba847b9675ec68e, type: 3}
+  m_PrefabInstance: {fileID: 3152313786148542546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &386342339
 GameObject:
   m_ObjectHideFlags: 0
@@ -11441,7 +11449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &704762878
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13218,7 +13226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _versionText: {fileID: 1644555546}
   Scheme: 1
-  Version: 3.3.0-dev
+  Version: 3.11.0-dev
   MinorVersion: 0
   MajorVersion: 0
   IncludePatchAfterMinor: 0
@@ -24694,7 +24702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3.3.0-dev
+  m_text: 3.11.0-dev
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

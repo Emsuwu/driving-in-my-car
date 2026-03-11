@@ -27,12 +27,18 @@ public class PauseController : MonoBehaviour
     public GameObject PauseMenuTitle;
 
     public static bool IsOnTitleScreen = true;
-    
+
+    private bool _debugTextOn;
+    private TMPro.TMP_Text _debugTMPText;
+    [SerializeField] private GameObject _loopCounterGobj;
+    [SerializeField] private GameObject _buildNumberGobj;
+
     private void Awake()
     {
         Instance = this;
         _pauseAction = InputSystem.actions.FindAction("Pause");
         _navigate = InputSystem.actions.FindAction("Navigate");
+        _debugTMPText = _debugPrint.GetComponent<TMPro.TMP_Text>();
     }
     private void Start()
     {
@@ -51,6 +57,7 @@ public class PauseController : MonoBehaviour
     private void OnEnable()
     {
         _inputActions.FindActionMap("UI").Enable();
+        _buildNumberGobj.GetComponent<TMPro.TMP_Text>().enabled = _debugTextOn;
     }
     private void OnDisable()
     {
@@ -82,25 +89,29 @@ public class PauseController : MonoBehaviour
 
         }
         
-        if (Keyboard.current.digit0Key.wasPressedThisFrame)
+        if (Keyboard.current.f3Key.wasPressedThisFrame)
         {
             PrintDebugInfo();
         }
-        if (Keyboard.current.digit9Key.wasPressedThisFrame)
-        {
-            _debugPrint.SetActive(false);
-        }
-
+        if (_debugTextOn) UpdateDebugInfo();
     }
 
+    private void UpdateDebugInfo()
+    {
+        _debugTMPText.text = "Debug info (Press F3 to toggle)\r\n_______________________________\r\n";
+
+        _debugTMPText.text += ($"\r\nIs on title screen?: {IsOnTitleScreen}");
+        _debugTMPText.text += ($"\r\nSaved player pos XYZ: {PlayerPrefs.GetFloat("SavedPlayerX")}, {PlayerPrefs.GetFloat("SavedPlayerY")}, {PlayerPrefs.GetFloat("SavedPlayerZ")}");
+        _debugTMPText.text += ($"\r\nHalf-loops completed: {PlayerPrefs.GetInt("HalfLoopsCompleted")}");
+
+        _loopCounterGobj.SetActive(false);
+    }
     public void PrintDebugInfo()
     {
-        _debugPrint.SetActive(true);
-        TMPro.TMP_Text t = _debugPrint.GetComponent<TMPro.TMP_Text>();
-
-        t.text = "Debug info\r\nPress [9] to close. Press [0] to refresh.\r\n_______________________________\r\n";
-
-        t.text += ($"\r\nIsOnTitleScreen: {IsOnTitleScreen}");
+        _debugTextOn = !_debugPrint.activeSelf;
+        _debugPrint.SetActive(_debugTextOn);
+        _loopCounterGobj.SetActive(_debugTextOn);
+        _buildNumberGobj.GetComponent<TMPro.TMP_Text>().enabled = _debugTextOn;
     }
 
     private void Esc()
