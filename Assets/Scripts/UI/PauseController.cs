@@ -91,6 +91,12 @@ public class PauseController : MonoBehaviour
             _debugPrint.SetActive(false);
         }
 
+        if (Keyboard.current.ctrlKey.isPressed && Keyboard.current.shiftKey.isPressed && Keyboard.current.rKey.isPressed)
+        {
+            PlayerPrefs.DeleteAll();
+            Application.Quit();
+        }
+
     }
 
     public void PrintDebugInfo()

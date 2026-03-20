@@ -12,7 +12,7 @@ public class PoliceLight : MonoBehaviour
 
     private void OnEnable()
     {
-        AudioManager.PlayOneShot(_sirenSound, PlayerMovement.Instance.transform);
+        AudioManager.PlayOneShot(_sirenSound, transform.position);
         StartCoroutine(EnableRed());
     }
 
