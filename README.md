@@ -1,5 +1,5 @@
 # No exit lane
-https://pilcro.itch.io/no-exit-lane
+You can play the game here: https://pilcro.itch.io/no-exit-lane
 
 Why are you here? What is this place? Keep walking; search for the truth.
 
