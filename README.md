@@ -8,8 +8,8 @@ This is a demo for a game I'm working on called No Exit Lane meaning it's short 
 For more info on the game's development, see this blog post: https://blog.emsuwu.com/2026/03/the-making-of-no-exit-lane-demo.html
 
 # Attributions
-AmbientCG, an amazing resource for many free materials!
-Tyre texture from Textures4Photoshop [Link ⇲]
-Starry Skybox by Geoff Dallimore [Link ⇲]
-Crow model by Tsar Games on Sketchfab [Link ⇲]
-Siren sound by Played and Faved
+- AmbientCG
+- Tyre texture from Textures4Photoshop [Link ⇲]
+- Starry Skybox by Geoff Dallimore [Link ⇲]
+- Crow model by Tsar Games on Sketchfab [Link ⇲]
+- Siren sound by Played and Faved
